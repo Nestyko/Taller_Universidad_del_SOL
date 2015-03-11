@@ -9,7 +9,6 @@ public class AluPre extends Estudiante
 	 */
 	private static int cant_alumnos;
 	private static int[] cant_alumnos_materias;//Preguntar por el maximo de materias
-	private static int promedio_total;
 	private static int[] cant_alumnos_semestre;// Y maximo de semestres
 	private static float sumatoria_promedios;
 
@@ -23,7 +22,6 @@ public class AluPre extends Estudiante
 	public static void comenzar(){
 		cant_alumnos = 0;
 		cant_alumnos_materias = new int[13];
-		promedio_total = 0;
 		cant_alumnos_semestre = new int[13];
 		sumatoria_promedios = 0;
 	}
@@ -40,6 +38,7 @@ public class AluPre extends Estudiante
 		this.notas = new float [num_materias];
 		this.notas = notas;
 		this.promedio = PromNot();
+		agregar_promedio(this.promedio);
 	}//AluPre
 
 	//METODO PARA CALCULAR EL PROMEDIO
@@ -50,10 +49,18 @@ public class AluPre extends Estudiante
 		
 	}//PromNot
 	
+	/**
+	 * Agrega el promedio a la base de de datos dentro de la clase
+	 * @param promedio es el promdio a guardar
+	 */
 	private void agregar_promedio(float promedio){
 		sumatoria_promedios += promedio;
 	}
 	
+	/**
+	 * Calcula el promedio de todos los alumnos de Pre-Grado
+	 * @return el promedio total como flotante
+	 */
 	public static float promedio_total(){
 		return sumatoria_promedios/cant_alumnos;
 	}

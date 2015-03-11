@@ -115,6 +115,36 @@ public class C {
 
 		return a;
 	}//in_float
+	
+	
+	/**
+	 * Ingresa la nota y ademas valida que sea mayor a 0 y menor o igual a 20
+	 * @param msg
+	 * @return
+	 */
+	public static float in_nota(String msg){
+		float a = (float)0.0;
+		boolean err = false;
+		do{
+		try {
+			System.out.print("          " + msg);
+			a = input.nextFloat();
+
+			if((a > 20) || (a < 0)){
+				err = true;
+			}
+			else{
+				err = false;
+			}
+		}//try
+		catch(Exception e){
+				Print.errorCen("Debe ingresar un numero (puede tener decimales)");
+				err = true;
+			}//catch
+		}while(err);
+
+		return a;
+	}//in_float
 
 	public static int in_int(String msg){
 		int a = 0;

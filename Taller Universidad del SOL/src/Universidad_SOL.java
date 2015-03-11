@@ -29,6 +29,21 @@ public class Universidad_SOL{
 					}
 				case 1:{
 					Print.outSln("Ingresando datos de Alumno de PRE-GRADO");
+					Print.endl(1);
+					String nombre = C.solo_letras(C.in_String("INGRESE EL NOMBRE DEL ALUMNO: "));
+					String apellido = C.solo_letras(C.in_String("INGRESE EL APELLIDO DEL ALUMNO: "));
+					int cedula = C.unsigned(C.in_int("INGRESE LA CEDULA: "));
+					Fecha nacimiento = ing_fecha();
+					String carrera = C.solo_letras(C.in_String("INGRESE LA CARRERA: "));
+					byte semestre = C.unsigned(C.in_byte("INGRESE EL SEMESTRE"));
+					byte materias = C.unsigned(C.in_byte("INGRESE LA CANTIDAD DE MATERIAS"));
+					float[] notas = new float[materias];
+					for (int i = 0; i < notas.length; i++) {
+						notas[i] = C.in_nota("INGRESE LA NOTA " + (i+1) + ": ");
+					}
+					
+					//Agregar el constructor
+					
 					
 					
 					
@@ -86,6 +101,30 @@ public static byte menu(){
 							
 
 	}//menu
+
+	/**
+	 * Metodo para ingresar una fecha y comprobarla
+	 * @return Fecha con dia mes año.
+	 */
+	public static Fecha ing_fecha(){
+		Fecha nueva;
+		boolean aux = true;
+		do {
+			Print.outSln("FECHA DE NACIMIENTO");
+			byte dia = C.unsigned(C.in_byte("DIA: "));
+			byte mes = C.unsigned(C.in_byte("MES: "));
+			int anno = C.unsigned(C.in_int("AÑO: "));
+			nueva = new Fecha(dia, mes, anno);
+			if(nueva.ComFec()){
+				aux = false;
+			}
+			else{
+				aux = true;
+			}
+		} while (aux);
+		return nueva;
+	}
+
 	
 	public static final void acerca_de(){
 	for(int i = 0;i<15;i++){
@@ -110,5 +149,6 @@ public static byte menu(){
 	System.out.print("\n");
 	
 	}//acerca_de
+	
 
 }
