@@ -1,22 +1,22 @@
 abstract class Estudiante
-{	String Ape;
-	String Nom;
-	int Ced;
-	Fecha Nam;
+{	String apellido;
+	String nombre;
+	int cedula;
+	Fecha nacimiento;
 
 	//CONSTRUCTOR
-	public Estudiante(String A, String No, int C, Fecha Na)
-	{	Ape = A.toUpperCase();
-		Nom = No.toUpperCase();
-		Ced = C;
-		Nam = Na;
+	public Estudiante(String apellido, String nombre, int cedula, Fecha nacimiento)
+	{	this.apellido = apellido.toUpperCase();
+		this.nombre = nombre.toUpperCase();
+		this.cedula = cedula;
+		this.nacimiento = nacimiento;
 	}//Estudiante
 
 	//METODO PARA MOSTRAR LOS DATOS
 	public void MostDat()
-	{	MCursor.TCen(20,"APELLIDO = "+Ape);
-		MCursor.TCen(20,"NOMBRE = "+Nom);
-		MCursor.TCen(20,"CEDULA = "+Ced);
-		Nam.Mostrar(20,"FECHA DE NACIMIENTO = ");
+	{	MCursor.TCen(20,"APELLIDO = "+apellido);
+		MCursor.TCen(20,"NOMBRE = "+nombre);
+		MCursor.TCen(20,"CEDULA = "+cedula);
+		nacimiento.Mostrar(20,"FECHA DE NACIMIENTO = ");
 	}
 }//class
