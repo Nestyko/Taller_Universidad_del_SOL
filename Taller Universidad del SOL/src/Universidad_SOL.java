@@ -28,7 +28,12 @@ public class Universidad_SOL{
 
 					}
 				case 1:{
-
+					Print.outSln("Ingresando datos de Alumno de PRE-GRADO");
+					
+					
+					
+					
+					//AluPre nuevo = new AluPre();
 					
 					opc = 0;
 					continue;
