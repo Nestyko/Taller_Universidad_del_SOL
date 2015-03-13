@@ -21,7 +21,7 @@ public class AluExt extends Estudiante
 		this.curso = C;
 		nivel = N;
 		cant_alumnos_nivel[nivel]++;
-		notas = new float [nivel];
+		float[] notas = new float [nivel];
 		notas = Nt;
 		promedio = PromNot();
 		agregar_promedio(promedio);
