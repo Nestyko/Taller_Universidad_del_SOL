@@ -18,6 +18,20 @@ import aux_classes.nestor.input_output.*;
  * de nombres, apellidos, frutas , etc  los cuales son seleccionados al azar.
  */
 public class Aleatorio {
+	
+			/**
+			 * Genera una presona aleatoria con nombre, apellido, genero, cedula(irrepedtible dentro de la clase), edad y fecha de nacimiento:
+			 */
+			public Aleatorio(){
+				this.nombre = getNombreAleatorio();
+				this.apellido = getApellidoAleatorio();
+				this.genero = getGeneroApropiado(this.nombre);
+				do{
+					this.cedula = getCedulaAleatoria();
+				}while(!ValidarCedula(this.cedula));
+				generarFechaNacimiento();
+				this.edad = (byte)(2014- this.year);
+			}
 
 		
 		private ArrayList<String> Nombres_Aleatorios = new ArrayList<String>();
@@ -28,6 +42,9 @@ public class Aleatorio {
 		private char genero;
 		private int cedula;
 		private byte edad;
+		private byte dia;
+		private byte mes;
+		private short year;
 		private static ArrayList<Integer> Cedulas = new ArrayList<Integer>();
 		
 		private void generarApellidosAleatorios(){
@@ -52,7 +69,7 @@ public class Aleatorio {
 		}
 		
 		/**
-		 * 
+		 * Añade las frutas al vector
 		 */
 		private void generarFrutasAleatorias(){
 			Frutas_Aleatorias.add("Kiwi");
@@ -73,7 +90,7 @@ public class Aleatorio {
 		}
 		
 		/**
-		 * 
+		 * Añade los nombres al vector
 		 */
 		private void generarNombresAleatorios(){
 			Nombres_Aleatorios.add("Nestor");
@@ -95,16 +112,98 @@ public class Aleatorio {
 			Nombres_Aleatorios.add("Gabriela");
 		}
 		
-									//Constructor
+
+		private void generarFechaNacimiento(){
+			Random rand = new Random();
+			this.dia = (byte)rand.nextInt(31);
+			this.mes = (byte)rand.nextInt(13);
+			this.year = (short)rand.nextInt(2015);		
+			}
 		
-		public Aleatorio(){
-			this.nombre = getNombreAleatorio();
-			this.apellido = getApellidoAleatorio();
-			this.genero = getGeneroApropiado(this.nombre);
-			do{
-			this.cedula = getCedulaAleatoria();
-			}while(!ValidarCedula(this.cedula));
-			this.edad = getEdadAleatoria();
+		/**
+		 * Llena un vector con numeros aleatorios
+		 * @param vec es el vector a llenar
+		 * @return el vector lleno de numeros aleatorios
+		 */
+		
+		public static int[] vector(int [] vec){
+			Random rand = new Random();
+			for (int i = 0; i < vec.length; i++) {
+				vec[i] = rand.nextInt();
+			}
+			return vec;
+		}
+		
+		/**
+		 * Llena un vector con numeros aleatorios desde 0 hasta limite
+		 * @param vec es el vector a llenar
+		 * @param limite es el limite hasta el cual se generaran los numero aleatorios
+		 * @return el vector lleno de numeros aleatorios
+		 */
+		public static int[] vector(int [] vec, Integer limite){
+			Random rand = new Random();
+			for (int i = 0; i < vec.length; i++) {
+				vec[i] = rand.nextInt(limite);
+			}
+			return vec;
+		}
+		
+		/**
+		 * Llena un vector con numeros aleatorios desde 0 hasta limite
+		 * @param vec es el vector a llenar
+		 * @param limite es el limite hasta el cual se generaran los numero aleatorios
+		 * @return el vector lleno de numeros aleatorios
+		 */
+		public static byte[] vector(byte[] vec, byte limite){
+			Random rand = new Random();
+			for (int i = 0; i < vec.length; i++) {
+				vec[i] = (byte)rand.nextInt(limite);
+			}
+			return vec;
+		}
+
+		/**
+		 * Llena un vector con numeros aleatorios desde 0 hasta limite
+		 * @param vec es el vector a llenar
+		 * @param limite es el limite hasta el cual se generaran los numero aleatorios
+		 * @return el vector lleno de numeros aleatorios
+		 */
+		public static short[] vector(short[] vec, short limite){
+			Random rand = new Random();
+			for (int i = 0; i < vec.length; i++) {
+				vec[i] = (short)rand.nextInt(limite);
+			}
+			return vec;
+		}
+		
+		/**
+		 * Llena un vector con numeros aleatorios desde 0 hasta limite
+		 * @param vec es el vector a llenar
+		 * @param limite es el limite hasta el cual se creara el numero entero
+		 * @return el vector lleno de numeros aleatorios
+		 */
+		public static double[] vector(double[] vec, int limite){
+			Random rand = new Random();
+
+			for (int i = 0; i < vec.length; i++) {
+				vec[i] = (rand.nextInt(limite)+rand.nextDouble());
+			}
+			return vec;
+		}
+		
+		/**
+		 * Llena un vector con numeros aleatorios desde 0 hasta limite
+		 * @param vec es el vector a llenar
+		 * @param limite es el limite hasta el cual se creara el numero entero
+		 * @return el vector lleno de numeros aleatorios
+		 */
+		public static float[] vector(float[] vec, int limite){
+			Random rand = new Random();
+
+			for (int i = 0; i < vec.length; i++) {
+				vec[i] = (rand.nextInt(limite)+rand.nextFloat());
+			}
+			return vec;
 		}
 		
 		public byte getEdadAleatoria(){
@@ -247,6 +346,30 @@ public class Aleatorio {
 
 		public void setEdad(byte edad) {
 			this.edad = edad;
+		}
+
+		public byte getDia() {
+			return dia;
+		}
+
+		public void setDia(byte dia) {
+			this.dia = dia;
+		}
+
+		public byte getMes() {
+			return mes;
+		}
+
+		public void setMes(byte mes) {
+			this.mes = mes;
+		}
+
+		public short getYear() {
+			return year;
+		}
+
+		public void setYear(short year) {
+			this.year = year;
 		}
 
 }

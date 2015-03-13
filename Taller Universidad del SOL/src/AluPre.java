@@ -7,6 +7,22 @@ import aux_classes.nestor.Ordenar;
 public class AluPre extends Estudiante
 {	
 	
+	//CONSTRUCTOR
+		public AluPre(String apellido, String nombre, int cedula, Fecha fechaNacimiento, 
+			String carrera, byte semestre, byte materias, float[] notas)
+		{	super(apellido,nombre,cedula,fechaNacimiento);
+			cant_alumnos++;
+			this.carrera = carrera;
+			this.semestre = semestre;
+			cant_alumnos_semestre[semestre]++;
+			this.num_materias = materias;
+			cant_alumnos_materias[num_materias]++;
+			this.notas = new float [num_materias];
+			this.notas = notas;
+			this.promedio = PromNot();
+			agregar_promedio(this.promedio);
+		}//AluPre
+	
 	/**
 	 * Static variables: son las variables que son propias de la clase pero y que no se ingresan manualmente
 	 * como por ejemplo los contadores
@@ -35,21 +51,7 @@ public class AluPre extends Estudiante
 		sumatoria_promedios = 0;
 	}
 
-	//CONSTRUCTOR
-	public AluPre(String apellido, String nombre, int cedula, Fecha fechaNacimiento, 
-		String carrera, byte semestre, byte materias, float[] notas)
-	{	super(apellido,nombre,cedula,fechaNacimiento);
-		cant_alumnos++;
-		this.carrera = carrera;
-		this.semestre = semestre;
-		cant_alumnos_semestre[semestre]++;
-		this.num_materias = materias;
-		cant_alumnos_materias[num_materias]++;
-		this.notas = new float [num_materias];
-		this.notas = notas;
-		this.promedio = PromNot();
-		agregar_promedio(this.promedio);
-	}//AluPre
+	
 
 	//METODO PARA CALCULAR EL PROMEDIO
 	private float PromNot()

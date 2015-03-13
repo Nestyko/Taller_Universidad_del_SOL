@@ -2,6 +2,7 @@ package aux_classes.nestor;
 
 import java.util.Random;
 
+import aux_classes.nestor.Aleatorio.Aleatorio;
 import aux_classes.nestor.strings.StrFunction;
 
 
@@ -13,25 +14,12 @@ public class Prueba_Clases{
 	
 	public static void main (String[] args){
 
-		int[] numeros =  new int[10];
+		double[] vec = new double[30];
+		vec = Aleatorio.vector(vec , 20);
 		
-		for (int i = 0; i < numeros.length; i++) {
-			numeros[i] = rand.nextInt(50);
+		for (int i = 0; i < vec.length; i++) {
+			System.out.println(vec[i]);
 		}
-		
-		System.out.println(StrFunction.toString(numeros));
-		
-		
-		int[] numbers = new int[]{
-			4,5,8,6,7
-		};
-		
-		Integer[] numbs =  new Integer[numbers.length];
-		for (int i = 0; i < numbs.length; i++) {
-			numbs[i] = Integer.valueOf(numbers[i]);
-		}
-		
-		StrFunction.toString(numbs);
 		
 		
 		

@@ -1,4 +1,5 @@
 import aux_classes.jose.Fecha;
+import aux_classes.nestor.Aleatorio.Aleatorio;
 import aux_classes.nestor.input_output.C;
 import aux_classes.nestor.input_output.Print;
 
@@ -107,6 +108,11 @@ public class Universidad_SOL{
 							}
 							opc=0;continue;
 				}
+				case 8:{
+					ing_AluPreAleatorio();
+					opc=0;
+					break;
+				}
 				
 				case 10:{
 					acerca_de();
@@ -156,7 +162,7 @@ public static byte menu(){
 				Print.outSln("6.- Cuadro de Honor");
 				//Print.outSln("5.- Borrar a algun estudiante");
 				Print.endl(2);
-				//Print.outSln("9.- Generar alumnos aleatorios");
+				Print.outSln("8.- GENERAR ALUMNO DE PREGRADO ALEATORIO");
 				Print.outSln("10.- Acerca del Programa");
 				Print.endl(1);
 				opc = C.in_byte("Seleccione una opcion: [  ]\b\b\b");
@@ -186,6 +192,19 @@ public static byte menu(){
 			}
 		} while (aux);
 		return nueva;
+	}
+	
+	public static void ing_AluPreAleatorio(){
+		Aleatorio hobbit = new Aleatorio();
+		Fecha nacimiento = new Fecha(hobbit.getDia(),hobbit.getMes(),hobbit.getYear());
+		byte materias = (byte) (Math.random()*8);
+		float[] notas = new float[materias];
+		notas = Aleatorio.vector(notas, 21);
+		
+		AluPre nuevo = new AluPre(hobbit.getApellido(),hobbit.getNombre(), hobbit.getCedula(), 
+				nacimiento, "Carrera aleatoria", (byte)(Math.random()*12),materias, notas);
+		
+		pregrado.add(nuevo);
 	}
 
 	
