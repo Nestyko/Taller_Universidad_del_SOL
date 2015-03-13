@@ -47,8 +47,20 @@ public class Universidad_SOL{
 					int cedula = C.unsigned(C.in_int("INGRESE LA CEDULA: "));
 					Fecha nacimiento = ing_fecha();
 					String carrera = C.solo_letras(C.in_String("INGRESE LA CARRERA: "));
-					byte semestre = C.unsigned(C.in_byte("INGRESE EL SEMESTRE"));
-					byte materias = C.unsigned(C.in_byte("INGRESE LA CANTIDAD DE MATERIAS"));
+					byte semestre = 0;
+					while ((semestre <= 0) || (semestre > 12)){
+					semestre = C.unsigned(C.in_byte("INGRESE EL SEMESTRE"));
+						if  (semestre > 12){
+							Print.errorCen("EL MAXIMO DE SEMESTRES ES 12");
+						}
+					}
+					byte materias = 0;
+					while ((materias <= 0) || (materias > 8)){
+					materias = C.unsigned(C.in_byte("INGRESE LA CANTIDAD DE MATERIAS"));
+						if (materias > 8){
+							Print.errorCen("EL MAXIMO DE MATERIAS ES 8");
+						}
+					}
 					float[] notas = new float[materias];
 					for (int i = 0; i < notas.length; i++) {
 						notas[i] = C.in_nota("INGRESE LA NOTA " + (i+1) + ": ");
@@ -72,7 +84,14 @@ public class Universidad_SOL{
 							int cedula = C.unsigned(C.in_int("INGRESE LA CEDULA: "));
 							Fecha nacimiento = ing_fecha();
 							String curso = C.solo_letras(C.in_String("INGRESE CURSO: "));
-							byte nivel = C.unsigned(C.in_byte("INGRESE EL NIVEL: "));
+							byte nivel = 0;
+							while ((nivel <= 0) ||(nivel > 6)){
+								nivel = C.unsigned(C.in_byte("INGRESE EL NIVEL: "));
+								if (nivel > 6){
+									Print.errorCen("EL MAXIMO DE NIVELES SON 6");
+								}
+							}
+							
 							float[] notas = new float[nivel];
 							for (int i = 0; i < notas.length; i++) {
 								notas[i] = C.in_nota("INGRESE LA NOTA " + (i+1) + ": ");
