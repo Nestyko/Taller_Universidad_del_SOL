@@ -1,6 +1,7 @@
 import aux_classes.input_output.C;
 import aux_classes.input_output.Print;
 import java.util.ArrayList;
+import java.io.*;
 
 /**
  * 
@@ -81,7 +82,28 @@ public class Universidad_SOL{
 					
 					
 					opc =0;continue;
+				}//case 2
+				case 3:{
+							if(pregrado.size()==0){
+								Print.errorCen("NO HAY ALUMNOS DE PREGRADO REGISTRADOS");
+							}
+					for(int i = 0;i<pregrado.size();i++){
+						pregrado.get(i).MostDat();
+						Print.pausa();
+					}
+					opc=0;continue;
 				}
+				case 4:{
+					if(extension.size()==0){
+						Print.errorCen("NO HAY ALUMNOS DE EXTENSION REGISTRADOS");
+					}
+							for(int i = 0;i<extension.size();i++){
+								extension.get(i).MostDat();
+								Print.pausa();
+							}
+							opc=0;continue;
+				}
+				
 				case 10:{
 					acerca_de();
 					Print.pausa("PRESIONE ENTER PARA CONTINUAR");
@@ -112,14 +134,15 @@ public static byte menu(){
 				Print.endl(1);
 				Print.separador();
 				Print.espacio(40);
-				Print.outln("Numero de Alumnos Registrados: ");// + variable que cuenta el numero de vendedores
+				Print.outln("Numero de Alumnos Registrados: " + (pregrado.size()+extension.size()));// + variable que cuenta el numero de vendedores
 				Print.endl(1);
 				Print.outSln("0.- Salir del Programa");
 				Print.outSln("1.- INGRESAR DATOS DE UN ALUMNO DE PREGRADO");
 				Print.outSln("2.- INGRESAR DATOS DE UN ALUMNO DE EXTENSION");
-				Print.outSln("3.- Mostrar el Listado de los alumnos");
-				Print.outSln("4.- Mostrar Promedios");
-				Print.outSln("5.- Cuadro de Honor");
+				Print.outSln("3.- MOSTRAR EL LISTADO DE LOS ALUMNOS DE PREGRADO");
+				Print.outSln("4.- MOSTRAR EL LISTADO DE LOS ALUMNOS DE EXTENSION");
+				Print.outSln("5.- Mostrar Promedios");
+				Print.outSln("6.- Cuadro de Honor");
 				//Print.outSln("5.- Borrar a algun estudiante");
 				Print.endl(2);
 				//Print.outSln("9.- Generar alumnos aleatorios");
