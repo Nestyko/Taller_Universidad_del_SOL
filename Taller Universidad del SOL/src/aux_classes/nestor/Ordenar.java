@@ -31,7 +31,75 @@ public class Ordenar{
 		}
 		return vec;
 	}
+
+	/**
+	 * Inicializa el Vector con todas sus posiciones en 0
+	 * @param vec es el vector
+	 * @return vector con todas sus posiciones en 0
+	 */
+	public static int[] inicializar(int[] vec){
+		for (int i = 0; i < vec.length; i++) {
+			vec[i] = 0;
+		}
+		return vec;
+	}
 	
+	/**
+	 * Inicializa el Vector con todas sus posiciones en 0
+	 * @param vec es el vector
+	 * @return vector con todas sus posiciones en 0
+	 */
+	public static float[] inicializar(float[] vec){
+		for (int i = 0; i < vec.length; i++) {
+			vec[i] = 0;
+		}
+		return vec;
+	}
 	
+	/**
+	 * Inicializa el Vector con todas sus posiciones en 0
+	 * @param vec es el vector
+	 * @return vector con todas sus posiciones en 0
+	 */
+	public static double[] inicializar(double[] vec){
+		for (int i = 0; i < vec.length; i++) {
+			vec[i] = 0;
+		}
+		return vec;
+	}
+	/**
+	 * Inicializa el Vector con todas sus posiciones en 0
+	 * @param vec es el vector
+	 * @return vector con todas sus posiciones en 0
+	 */
+	public static short[] inicializar(short[] vec){
+		for (int i = 0; i < vec.length; i++) {
+			vec[i] = 0;
+		}
+		return vec;
+	}
 	
+	/**
+	 * Inicializa el Vector con todas sus posiciones en 0
+	 * @param vec es el vector
+	 * @return vector con todas sus posiciones en 0
+	 */
+	public static byte[] inicializar(byte[] vec){
+		for (int i = 0; i < vec.length; i++) {
+			vec[i] = 0;
+		}
+		return vec;
+	}
+	
+	/**
+	 * Inicializa el Vector con todas sus posiciones en 0
+	 * @param vec es el vector
+	 * @return vector con todas sus posiciones en 0
+	 */
+	public static long[] inicializar(long[] vec){
+		for (int i = 0; i < vec.length; i++) {
+			vec[i] = 0;
+		}
+		return vec;
+	}
 }

@@ -1,5 +1,6 @@
 import aux_classes.jose.Fecha;
 import aux_classes.jose.MCursor;
+import aux_classes.nestor.Ordenar;
 
 
 
@@ -22,10 +23,15 @@ public class AluPre extends Estudiante
 	float notas[];
 	float promedio;
 	
+	/**
+	 * Inicializa los contadores y crea los vectores
+	 */
 	public static void comenzar(){
 		cant_alumnos = 0;
-		cant_alumnos_materias = new int[13];
-		cant_alumnos_semestre = new int[13];
+		cant_alumnos_materias = new int[8];
+		cant_alumnos_materias = Ordenar.inicializar(cant_alumnos_materias);
+		cant_alumnos_semestre = new int[12];
+		cant_alumnos_semestre = Ordenar.inicializar(cant_alumnos_semestre);
 		sumatoria_promedios = 0;
 	}
 

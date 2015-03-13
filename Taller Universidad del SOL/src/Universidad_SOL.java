@@ -3,7 +3,7 @@ import aux_classes.nestor.input_output.C;
 import aux_classes.nestor.input_output.Print;
 
 import java.util.ArrayList;
-import java.io.*;
+
 
 /**
  * 
@@ -24,6 +24,8 @@ public class Universidad_SOL{
 	public static ArrayList<AluExt> extension = new ArrayList<AluExt>();
 	
 	public static void main(String[] args){
+		//inicializar los contadores
+		comenzar();
 
 			byte opc;
 			do{
@@ -127,7 +129,14 @@ public class Universidad_SOL{
 
 	}//main
 
-
+/**
+ * Inicializa los contadores staticos de las clases AluPre y AluExt
+ */
+public static void comenzar(){
+	AluPre.comenzar();
+	AluExt.comenzar();
+}
+	
 public static byte menu(){
 
    byte opc;
