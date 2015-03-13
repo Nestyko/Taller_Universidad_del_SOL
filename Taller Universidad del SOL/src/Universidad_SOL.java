@@ -1,6 +1,6 @@
 import aux_classes.input_output.C;
 import aux_classes.input_output.Print;
-
+import java.util.ArrayList;
 
 /**
  * 
@@ -13,6 +13,12 @@ import aux_classes.input_output.Print;
  */
 
 public class Universidad_SOL{
+	
+	/**
+	* Variables globales
+	*/
+	public static ArrayList<AluPre> pregrado = new ArrayList<AluPre>();
+	public static ArrayList<AluExt> extension = new ArrayList<AluExt>();
 	
 	public static void main(String[] args){
 
@@ -42,18 +48,40 @@ public class Universidad_SOL{
 						notas[i] = C.in_nota("INGRESE LA NOTA " + (i+1) + ": ");
 					}
 					
-					//Agregar el constructor
+					// constructor
+					AluPre nuevo = new AluPre(apellido, nombre, cedula,nacimiento,carrera, semestre, materias, notas);
 					
-					
-					
-					
-					
-					//AluPre nuevo = new AluPre();
+					// agregar el obejto nuevo al vector
+					pregrado.add(nuevo);
 					
 					opc = 0;
 					continue;
 				}//case 1
 				
+				case 2:{
+							Print.outSln("Ingresando datos de Alumno de PRE-GRADO");
+							Print.endl(1);
+							String nombre = C.solo_letras(C.in_String("INGRESE EL NOMBRE DEL ALUMNO: "));
+							String apellido = C.solo_letras(C.in_String("INGRESE EL APELLIDO DEL ALUMNO: "));
+							int cedula = C.unsigned(C.in_int("INGRESE LA CEDULA: "));
+							Fecha nacimiento = ing_fecha();
+							String curso = C.solo_letras(C.in_String("INGRESE CURSO: "));
+							byte nivel = C.unsigned(C.in_byte("INGRESE EL NIVEL: "));
+							float[] notas = new float[nivel];
+							for (int i = 0; i < notas.length; i++) {
+								notas[i] = C.in_nota("INGRESE LA NOTA " + (i+1) + ": ");
+							}
+
+							// constructor
+							AluExt nuevo = new AluExt(apellido, nombre, cedula,nacimiento,
+							curso, nivel, notas);
+
+							// agregar el obejto nuevo al vector
+							extension.add(nuevo);
+					
+					
+					opc =0;continue;
+				}
 				case 10:{
 					acerca_de();
 					Print.pausa("PRESIONE ENTER PARA CONTINUAR");
@@ -87,10 +115,11 @@ public static byte menu(){
 				Print.outln("Numero de Alumnos Registrados: ");// + variable que cuenta el numero de vendedores
 				Print.endl(1);
 				Print.outSln("0.- Salir del Programa");
-				Print.outSln("1.- Ingresar datos de un Alumno");
-				Print.outSln("2.- Mostrar el Listado de los alumnos");
-				Print.outSln("3.- Mostrar Promedios");
-				Print.outSln("4.- Cuadro de Honor");
+				Print.outSln("1.- INGRESAR DATOS DE UN ALUMNO DE PREGRADO");
+				Print.outSln("2.- INGRESAR DATOS DE UN ALUMNO DE EXTENSION");
+				Print.outSln("3.- Mostrar el Listado de los alumnos");
+				Print.outSln("4.- Mostrar Promedios");
+				Print.outSln("5.- Cuadro de Honor");
 				//Print.outSln("5.- Borrar a algun estudiante");
 				Print.endl(2);
 				//Print.outSln("9.- Generar alumnos aleatorios");
@@ -104,7 +133,7 @@ public static byte menu(){
 
 	/**
 	 * Metodo para ingresar una fecha y comprobarla
-	 * @return Fecha con dia mes año.
+	 * @return Fecha con dia mes aï¿½o.
 	 */
 	public static Fecha ing_fecha(){
 		Fecha nueva;
@@ -113,7 +142,7 @@ public static byte menu(){
 			Print.outSln("FECHA DE NACIMIENTO");
 			byte dia = C.unsigned(C.in_byte("DIA: "));
 			byte mes = C.unsigned(C.in_byte("MES: "));
-			int anno = C.unsigned(C.in_int("AÑO: "));
+			int anno = C.unsigned(C.in_int("Aï¿½O: "));
 			nueva = new Fecha(dia, mes, anno);
 			if(nueva.ComFec()){
 				aux = false;
@@ -138,7 +167,7 @@ public static byte menu(){
 	System.out.print("          ");
 	System.out.println("Cedula de Identidad: 23.863.118");
 	System.out.print("          ");
-	System.out.println("Programa realizado por: José Delgado");
+	System.out.println("Programa realizado por: Josï¿½ Delgado");
 	System.out.print("          ");
 	System.out.println("Cedula de Identidad: ");
 	System.out.print("          ");

@@ -16,12 +16,12 @@ public class AluExt extends Estudiante
 	float promedio;
 
 	//CONSTRUCTOR
-	public AluExt(String A, String No, int Ce, Fecha Na, String C, byte N, byte[]Nt)
+	public AluExt(String A, String No, int Ce, Fecha Na, String C, byte N, float[]Nt)
 	{	super(A,No,Ce,Na);
 		this.curso = C;
 		nivel = N;
 		cant_alumnos_nivel[nivel]++;
-		notas = new byte [nivel];
+		notas = new float [nivel];
 		notas = Nt;
 		promedio = PromNot();
 		agregar_promedio(promedio);

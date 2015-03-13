@@ -27,7 +27,8 @@ public class AluPre extends Estudiante
 	}
 
 	//CONSTRUCTOR
-	public AluPre(String apellido, String nombre, int cedula, Fecha fechaNacimiento, String carrera, byte semestre, byte materias, float[] notas)
+	public AluPre(String apellido, String nombre, int cedula, Fecha fechaNacimiento, 
+		String carrera, byte semestre, byte materias, float[] notas)
 	{	super(apellido,nombre,cedula,fechaNacimiento);
 		cant_alumnos++;
 		this.carrera = carrera;
