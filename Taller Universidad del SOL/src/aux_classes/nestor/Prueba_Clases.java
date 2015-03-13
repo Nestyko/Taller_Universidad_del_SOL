@@ -1,10 +1,9 @@
-package aux_classes;
+package aux_classes.nestor;
 
 import java.util.Random;
 
-import aux_classes.strings.StrFunction;
+import aux_classes.nestor.strings.StrFunction;
 
-import aux_classes.strings.StrFunction;
 
 
 public class Prueba_Clases{

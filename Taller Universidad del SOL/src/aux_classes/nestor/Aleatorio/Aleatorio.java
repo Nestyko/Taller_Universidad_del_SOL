@@ -1,7 +1,7 @@
-package aux_classes.Aleatorio;
+package aux_classes.nestor.Aleatorio;
 import java.util.ArrayList;
 import java.util.Random;
-import aux_classes.input_output.*;
+import aux_classes.nestor.input_output.*;
 
 
 /**

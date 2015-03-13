@@ -1,4 +1,4 @@
-package aux_classes;
+package aux_classes.nestor;
 
 public class Ordenar{
 	

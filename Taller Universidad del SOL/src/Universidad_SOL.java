@@ -1,5 +1,5 @@
-import aux_classes.input_output.C;
-import aux_classes.input_output.Print;
+import aux_classes.nestor.input_output.C;
+import aux_classes.nestor.input_output.Print;
 import java.util.ArrayList;
 import java.io.*;
 
