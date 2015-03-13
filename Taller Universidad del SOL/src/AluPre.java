@@ -1,3 +1,6 @@
+import aux_classes.jose.Fecha;
+import aux_classes.jose.MCursor;
+
 
 
 public class AluPre extends Estudiante

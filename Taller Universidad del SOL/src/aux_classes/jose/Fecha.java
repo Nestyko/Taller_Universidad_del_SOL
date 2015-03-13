@@ -1,3 +1,5 @@
+package aux_classes.jose;
+
 public class Fecha
 {	byte Dia;
 	byte Mes;
