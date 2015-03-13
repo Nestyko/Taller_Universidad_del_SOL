@@ -113,6 +113,11 @@ public class Universidad_SOL{
 					opc=0;
 					break;
 				}
+				case 9:{
+					ing_AluExtAleatorio();
+					opc=0;
+					break;
+				}
 				
 				case 10:{
 					acerca_de();
@@ -197,7 +202,10 @@ public static byte menu(){
 	public static void ing_AluPreAleatorio(){
 		Aleatorio hobbit = new Aleatorio();
 		Fecha nacimiento = new Fecha(hobbit.getDia(),hobbit.getMes(),hobbit.getYear());
-		byte materias = (byte) (Math.random()*8);
+		byte materias = 0;
+		while(materias == 0){
+			materias = (byte) (Math.random()*8);
+		}
 		float[] notas = new float[materias];
 		notas = Aleatorio.vector(notas, 21);
 		
@@ -205,6 +213,22 @@ public static byte menu(){
 				nacimiento, "Carrera aleatoria", (byte)(Math.random()*12),materias, notas);
 		
 		pregrado.add(nuevo);
+	}
+	
+	public static void ing_AluExtAleatorio(){
+		Aleatorio hobbit = new Aleatorio();
+		Fecha nacimiento = new Fecha(hobbit.getDia(),hobbit.getMes(),hobbit.getYear());
+		byte nivel = 0;
+		while (nivel == 0){
+		nivel = (byte) (Math.random()*6);
+		}
+		float[] notas = new float[nivel];
+		notas = Aleatorio.vector(notas, 21);
+		
+		AluExt nuevo = new AluExt(hobbit.getApellido(),hobbit.getNombre(), hobbit.getCedula(), 
+				nacimiento, "Curso aleatorio", nivel, notas);
+		
+		extension.add(nuevo);
 	}
 
 	
