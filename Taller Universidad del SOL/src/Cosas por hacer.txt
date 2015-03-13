@@ -1,0 +1,11 @@
+1.-Preguntar por el maximo de:
+
+	- Semestres
+	- Materias
+	- Niveles
+	
+2.- De acuerdo a ese maximo hacer las Validaciones correspondientes
+
+3.- Cambiar otravez a KbInput y (opcional)  modificarlo.
+
+4.- Agregar el constructor para AlumnoPre

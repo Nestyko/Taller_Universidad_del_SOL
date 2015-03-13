@@ -1,18 +1,37 @@
 public class AluExt extends Estudiante
-{	String curso;
+{	
+	
+	/**
+	 * Static variables: son las variables que son propias de la clase pero y que no se ingresan manualmente
+	 * como por ejemplo los contadores
+	 */
+	private static int cant_alumnos;
+	private static int[] cant_alumnos_nivel;//Preguntar por el maximo de niveles
+	private static float sumatoria_promedios;
+
+	
+	String curso;
 	byte nivel;
 	byte notas[];
 	float promedio;
 
 	//CONSTRUCTOR
-	public AluExt(String A, String No, int Ce, Fecha Na, String C, byte N, byte[]Nt)
+	public AluExt(String A, String No, int Ce, Fecha Na, String C, byte N, float[]Nt)
 	{	super(A,No,Ce,Na);
 		this.curso = C;
 		nivel = N;
-		notas = new byte [nivel];
+		cant_alumnos_nivel[nivel]++;
+		notas = new float [nivel];
 		notas = Nt;
 		promedio = PromNot();
+		agregar_promedio(promedio);
 	}//AluExt
+	
+	public static void comenzar(){
+		cant_alumnos = 0;
+		cant_alumnos_nivel = new int[20];
+		sumatoria_promedios = 0;
+	}
 
 	//METODO PARA CALCULAR EL PROMEDIO
 	public float PromNot()
@@ -20,6 +39,22 @@ public class AluExt extends Estudiante
 		for(int i=0; i<nivel; i++) Tot += notas[i];
 		return Tot/nivel;
 	}//PromNot
+	
+	/**
+	 * Agrega el promedio a la base de de datos dentro de la clase
+	 * @param promedio es el promdio a guardar
+	 */
+	private void agregar_promedio(float promedio){
+		sumatoria_promedios += promedio;
+	}
+	
+	/**
+	 * Calcula el promedio de todos los alumnos de Pre-Grado
+	 * @return el promedio total como flotante
+	 */
+	public static float promedio_total(){
+		return sumatoria_promedios/cant_alumnos;
+	}
 
 	//METODO PARA MOSTRAR LOS DATOS
 	public void MostDat()
