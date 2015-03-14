@@ -130,10 +130,15 @@ public class Universidad_SOL{
 							}
 							opc=0;continue;
 				}
-				case 6:{
+				case 5:{
 					CuadroDeHonor_AluPre();
 					Print.pausa();
 					opc = 0; break;
+				}
+				case 6:{
+					CuadroDeHonor_AluExt();
+					Print.pausa();
+					opc=0;break;
 				}
 				case 8:{
 					ing_AluPreAleatorio();
@@ -190,8 +195,8 @@ public static byte menu(){
 				Print.outSln("2.- INGRESAR DATOS DE UN ALUMNO DE EXTENSION");
 				Print.outSln("3.- MOSTRAR EL LISTADO DE LOS ALUMNOS DE PREGRADO");
 				Print.outSln("4.- MOSTRAR EL LISTADO DE LOS ALUMNOS DE EXTENSION");
-				Print.outSln("5.- Mostrar Promedios");
-				Print.outSln("6.- Cuadro de Honor");
+				Print.outSln("5.- CUADRO DE HONOR PREGRADO");
+				Print.outSln("6.- CUADRO DE HONOR EXTENSION");
 				//Print.outSln("5.- Borrar a algun estudiante");
 				Print.endl(2);
 				
@@ -268,16 +273,44 @@ public static byte menu(){
 		estudiantes = AluPre.OrdenarPorPromedio(estudiantes);
 		
 		Print.outCenln("MEJORES NOTAS DE PREGRADO");
+		boolean primera = true;
 		for (AluPre alu : estudiantes) {
 			if(alu.promedio == estudiantes.get(0).promedio){
 				Print.outCenln("--->   " + alu.apellido + ", " + alu.nombre + ": " + alu.promedio);
 			}
 			else{
-				Print.outCenln(alu.apellido + ", " + alu.nombre + ": " + alu.promedio);
+				if(primera){
+					Print.endl(2);
+					primera = false;
+				}
+				Print.outSln(alu.apellido + ", " + alu.nombre + ": " + alu.promedio);
 			}
 			
 		}
 		
+	}
+	
+	public static void CuadroDeHonor_AluExt(){
+		ArrayList<AluExt> estudiantes = new ArrayList<AluExt>();
+		estudiantes = extension;
+		estudiantes = AluExt.OrdenarPorPromedio(estudiantes);
+
+		Print.outCenln("MEJORES NOTAS DE PREGRADO");
+		boolean primera = true;
+		for (AluPre alu : estudiantes) {
+			if(alu.promedio == estudiantes.get(0).promedio){
+				Print.outCenln("--->   " + alu.apellido + ", " + alu.nombre + ": " + alu.promedio);
+			}
+			else{
+				if(primera){
+					Print.endl(2);
+					primera = false;
+				}
+				Print.outSln(alu.apellido + ", " + alu.nombre + ": " + alu.promedio);
+			}
+
+		}
+
 	}
 	
 	
