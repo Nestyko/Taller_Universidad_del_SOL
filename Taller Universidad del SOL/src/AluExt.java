@@ -91,11 +91,33 @@ public class AluExt extends Estudiante
 			AluExt temp;
 			for (int i = 0; i < (estudiante.size()); i++) {
 				for (int j = 0; j < (estudiante.size()); j++) {
-					if (estudiante.get(i).apellido.compareTo(estudiante
-							.get(i + 1).apellido) > 0) {
-						temp = estudiante.get(i);
-						estudiante.set(i, estudiante.get(i + 1));
-						estudiante.set((i + 1), temp);
+					if (estudiante.get(j).apellido.compareTo(estudiante
+							.get(j + 1).apellido) > 0) {
+						temp = estudiante.get(j);
+						estudiante.set(j, estudiante.get(j + 1));
+						estudiante.set((j + 1), temp);
+					}
+				}
+			}
+		}
+		return estudiante;
+	}
+	
+	/**
+	 * Ordena el ArrayList<AluExt> por promedio de forma Descendente
+	 *  por el metodo burbuja
+	 * @param estudiante es el Arraylist a ordenar
+	 * @return el ArrayList ya ordenado por Promedio
+	 */
+	public static ArrayList<AluExt> OrdenarPorPromedio(ArrayList<AluExt> estudiante){
+		if (estudiante.size() > 1) {
+			AluExt temp;
+			for (int i = 0; i < (estudiante.size()-1); i++) {
+				for (int j = 0; j < (estudiante.size()-1); j++) {
+					if (estudiante.get(j).promedio < estudiante.get(j+1).promedio) {
+						temp = estudiante.get(j);
+						estudiante.set(j, estudiante.get(j + 1));
+						estudiante.set((j + 1), temp);
 					}
 				}
 			}

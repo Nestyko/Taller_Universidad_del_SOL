@@ -49,14 +49,14 @@ public class Universidad_SOL{
 					String carrera = C.solo_letras(C.in_String("INGRESE LA CARRERA: "));
 					byte semestre = 0;
 					while ((semestre <= 0) || (semestre > 12)){
-					semestre = C.unsigned(C.in_byte("INGRESE EL SEMESTRE"));
+					semestre = C.unsigned(C.in_byte("INGRESE EL SEMESTRE: "));
 						if  (semestre > 12){
 							Print.errorCen("EL MAXIMO DE SEMESTRES ES 12");
 						}
 					}
 					byte materias = 0;
 					while ((materias <= 0) || (materias > 8)){
-					materias = C.unsigned(C.in_byte("INGRESE LA CANTIDAD DE MATERIAS"));
+					materias = C.unsigned(C.in_byte("INGRESE LA CANTIDAD DE MATERIAS: "));
 						if (materias > 8){
 							Print.errorCen("EL MAXIMO DE MATERIAS ES 8");
 						}
@@ -129,6 +129,11 @@ public class Universidad_SOL{
 								Print.pausa();
 							}
 							opc=0;continue;
+				}
+				case 6:{
+					CuadroDeHonor_AluPre();
+					Print.pausa();
+					opc = 0; break;
 				}
 				case 8:{
 					ing_AluPreAleatorio();
@@ -255,6 +260,24 @@ public static byte menu(){
 		
 		extension.add(nuevo);
 		extension = AluExt.OrdenarPorApellido(extension);
+	}
+	
+	public static void CuadroDeHonor_AluPre(){
+		ArrayList<AluPre> estudiantes = new ArrayList<AluPre>();
+		estudiantes = pregrado;
+		estudiantes = AluPre.OrdenarPorPromedio(estudiantes);
+		
+		Print.outCenln("MEJORES NOTAS DE PREGRADO");
+		for (AluPre alu : estudiantes) {
+			if(alu.promedio == estudiantes.get(0).promedio){
+				Print.outCenln("--->   " + alu.apellido + ", " + alu.nombre + ": " + alu.promedio);
+			}
+			else{
+				Print.outCenln(alu.apellido + ", " + alu.nombre + ": " + alu.promedio);
+			}
+			
+		}
+		
 	}
 	
 	
