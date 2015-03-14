@@ -33,6 +33,8 @@ public class AluPre extends Estudiante
 	private static int[] cant_alumnos_materias;//Preguntar por el maximo de materias
 	private static int[] cant_alumnos_semestre;// Y maximo de semestres
 	private static float sumatoria_promedios;
+	private static int aprobados;
+	private static int reprobados;
 
 	
 	String carrera;
@@ -51,6 +53,8 @@ public class AluPre extends Estudiante
 		cant_alumnos_semestre = new int[12];
 		cant_alumnos_semestre = Ordenar.inicializar(cant_alumnos_semestre);
 		sumatoria_promedios = 0;
+		aprobados = 0;
+		reprobados = 0;
 	}
 
 	
@@ -69,7 +73,22 @@ public class AluPre extends Estudiante
 	 */
 	private void agregar_promedio(float promedio){
 		sumatoria_promedios += promedio;
+		if(promedio >= 9.5){
+			aprobados++;
+		}
+		else{
+			reprobados++;
+		}
 	}
+	
+	public static final int getAprobados(){
+		return aprobados;
+	}
+	
+	public static final int getReprobados(){
+		return reprobados;
+	}
+	
 	
 	/**
 	 * Calcula el promedio de todos los alumnos de Pre-Grado
@@ -111,6 +130,15 @@ public class AluPre extends Estudiante
 						temp = estudiante.get(j);
 						estudiante.set(j, estudiante.get(j + 1));
 						estudiante.set((j + 1), temp);
+					}
+					else if (estudiante.get(j).apellido.compareTo(estudiante
+							.get(j + 1).apellido) == 0){
+						if (estudiante.get(j).nombre.compareTo(estudiante
+								.get(j + 1).nombre) > 0) {
+							temp = estudiante.get(j);
+							estudiante.set(j, estudiante.get(j + 1));
+							estudiante.set((j + 1), temp);
+						}
 					}
 				}
 			}

@@ -14,6 +14,8 @@ public class AluExt extends Estudiante
 	private static int cant_alumnos;
 	private static int[] cant_alumnos_nivel;//Preguntar por el maximo de niveles
 	private static float sumatoria_promedios;
+	private static int aprobados;
+	private static int reprobados;
 
 	
 	String curso;
@@ -41,6 +43,8 @@ public class AluExt extends Estudiante
 		cant_alumnos_nivel = new int[6];
 		cant_alumnos_nivel = Ordenar.inicializar(cant_alumnos_nivel);
 		sumatoria_promedios = 0;
+		aprobados = 0;
+		reprobados = 0;
 	}
 
 	//METODO PARA CALCULAR EL PROMEDIO
@@ -56,6 +60,20 @@ public class AluExt extends Estudiante
 	 */
 	private void agregar_promedio(float promedio){
 		sumatoria_promedios += promedio;
+		if(promedio >= 9.5){
+			aprobados++;
+		}
+		else{
+			reprobados++;
+		}
+	}
+	
+	public static final int getAprobados(){
+		return aprobados;
+	}
+	
+	public static final int getReprobados(){
+		return reprobados;
 	}
 	
 	/**
@@ -76,7 +94,7 @@ public class AluExt extends Estudiante
 		MCursor.TCen(20,"NOTA DE LOS NIVELES");
 		for(int i=0; i<nivel; i++) MCursor.TCen(25,"NIVEL ["+(i+1)+"] = "+notas[i]);
 		MCursor.TCen(10,"------------------------------------------------------------");
-		MCursor.TCen(20,"PROMEDIO = "+promedio);
+		MCursor.TCen(20,"PROMEDIO = " + promedio);
 		MCursor.TCen(10,"------------------------------------------------------------");
 	}
 	
@@ -96,6 +114,15 @@ public class AluExt extends Estudiante
 						temp = estudiante.get(j);
 						estudiante.set(j, estudiante.get(j + 1));
 						estudiante.set((j + 1), temp);
+					}
+					else if (estudiante.get(j).apellido.compareTo(estudiante
+							.get(j + 1).apellido) == 0){
+						if (estudiante.get(j).nombre.compareTo(estudiante
+								.get(j + 1).nombre) > 0) {
+							temp = estudiante.get(j);
+							estudiante.set(j, estudiante.get(j + 1));
+							estudiante.set((j + 1), temp);
+						}
 					}
 				}
 			}

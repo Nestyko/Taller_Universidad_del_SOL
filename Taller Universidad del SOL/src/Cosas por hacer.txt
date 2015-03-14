@@ -14,7 +14,7 @@
 
 5.- imprimir las notas en forma de fila. utilizar Print.imprimir_fila()
 
-6.- Mostrar el mejor alumno tanto de pregrado como de extension. 
+6.- Mostrar el mejor alumno tanto de pregrado como de extension. (Listo)
 
 	Pilas con las Excepciones:
 
@@ -29,3 +29,9 @@
 	- Total de alumnos reprobados
 	- Total de alumnos por arriba del promedio
 	- Total de alumnos por debajo del promedio
+	
+9.- Los contadores de Estudiantes van en la clase padre
+
+10.- Acomodar las flechas y el espaciado del cuadro de honor
+
+11.- Y si tienen el mismo apellido deben ordenarse por nombres <---
