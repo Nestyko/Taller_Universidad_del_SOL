@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 import aux_classes.jose.Fecha;
 import aux_classes.jose.MCursor;
 import aux_classes.nestor.Ordenar;
@@ -92,5 +94,28 @@ public class AluPre extends Estudiante
 		MCursor.TCen(20,"PROMEDIO = "+promedio);
 		MCursor.TCen(10,"------------------------------------------------------------");
 	}//MostDat
+	
+	/**
+	 * Ordena el ArrayList<Estudiante> por apellido de forma ascendente
+	 *  por el metodo burbuja
+	 * @param estudiante es el Arraylist a ordenar
+	 * @return el ArrayList ya ordenado por apellido
+	 */
+	public static ArrayList<AluPre> OrdenarPorApellido(ArrayList<AluPre> estudiante){
+		if (estudiante.size() > 1) {
+			AluPre temp;
+			for (int i = 0; i < (estudiante.size()-1); i++) {
+				for (int j = 0; j < (estudiante.size()-1); j++) {
+					if (estudiante.get(i).apellido.compareTo(estudiante
+							.get(i + 1).apellido) > 0) {
+						temp = estudiante.get(i);
+						estudiante.set(i, estudiante.get(i + 1));
+						estudiante.set((i + 1), temp);
+					}
+				}
+			}
+		}
+		return estudiante;
+	}
 
 }//class

@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 import aux_classes.jose.Fecha;
 import aux_classes.jose.MCursor;
 
@@ -22,4 +24,6 @@ abstract class Estudiante
 		MCursor.TCen(20,"CEDULA = "+cedula);
 		nacimiento.Mostrar(20,"FECHA DE NACIMIENTO = ");
 	}
+	
+	
 }//class

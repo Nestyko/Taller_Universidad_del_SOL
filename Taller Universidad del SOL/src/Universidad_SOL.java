@@ -25,7 +25,7 @@ public class Universidad_SOL{
 	public static ArrayList<AluExt> extension = new ArrayList<AluExt>();
 	
 	public static void main(String[] args){
-		//inicializar los contadores
+		//Inicializar los contadores
 		comenzar();
 
 			byte opc;
@@ -72,6 +72,8 @@ public class Universidad_SOL{
 					// agregar el obejto nuevo al vector
 					pregrado.add(nuevo);
 					
+					pregrado = AluPre.OrdenarPorApellido(pregrado);
+					
 					opc = 0;
 					continue;
 				}//case 1
@@ -103,6 +105,7 @@ public class Universidad_SOL{
 
 							// agregar el obejto nuevo al vector
 							extension.add(nuevo);
+							extension = AluExt.OrdenarPorApellido(extension);
 					
 					
 					opc =0;continue;
@@ -171,8 +174,8 @@ public static byte menu(){
 
    byte opc;
 			Print.separador();
-				//C.outCenln("Empresa X");
-				Print.endl(1);
+				Print.outCenln("2do TALLER DE PROGRAMACION");
+				Print.outCenln("UNIVERSIDAD DEL SOL");
 				Print.separador();
 				Print.espacio(40);
 				Print.outln("Numero de Alumnos Registrados: " + (pregrado.size()+extension.size()));// + variable que cuenta el numero de vendedores
@@ -186,7 +189,9 @@ public static byte menu(){
 				Print.outSln("6.- Cuadro de Honor");
 				//Print.outSln("5.- Borrar a algun estudiante");
 				Print.endl(2);
+				
 				Print.outSln("8.- GENERAR ALUMNO DE PREGRADO ALEATORIO");
+				Print.outSln("9.- GENERAR ALUMNO DE EXTENSION ALEATORIO");
 				Print.outSln("10.- Acerca del Programa");
 				Print.endl(1);
 				opc = C.in_byte("Seleccione una opcion: [  ]\b\b\b");
@@ -232,6 +237,7 @@ public static byte menu(){
 				nacimiento, "Carrera aleatoria", (byte)(Math.random()*12),materias, notas);
 		
 		pregrado.add(nuevo);
+		pregrado = AluPre.OrdenarPorApellido(pregrado);
 	}
 	
 	public static void ing_AluExtAleatorio(){
@@ -248,7 +254,12 @@ public static byte menu(){
 				nacimiento, "Curso aleatorio", nivel, notas);
 		
 		extension.add(nuevo);
+		extension = AluExt.OrdenarPorApellido(extension);
 	}
+	
+	
+	
+	
 
 	
 	public static final void acerca_de(){
