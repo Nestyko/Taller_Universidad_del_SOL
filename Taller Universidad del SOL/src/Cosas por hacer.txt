@@ -21,9 +21,9 @@
 	- Si hay mas de un alumno con la mejor nota
 	- 
 
-7.- Calcular el promedio tanto de pregrado como de extension
+7.- Calcular el promedio tanto de pregrado como de extension (Listo)
 
-8.- Indicar tanto los alumnos de pregrado como los de extension:
+8.- Indicar tanto los alumnos de pregrado como los de extension: (Listo)
 
 	- Total de alumnos aprobados
 	- Total de alumnos reprobados
@@ -34,4 +34,4 @@
 
 10.- Acomodar las flechas y el espaciado del cuadro de honor
 
-11.- Y si tienen el mismo apellido deben ordenarse por nombres <---
+11.- Y si tienen el mismo apellido deben ordenarse por nombres <---(Listo)

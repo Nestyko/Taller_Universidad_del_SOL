@@ -141,22 +141,27 @@ public class Universidad_SOL{
 					opc=0;break;
 				}
 				case 7:{
-					MostrarEstadisticas();
+					MostrarEstadisticasPregrado();
 					Print.pausa();
 					opc=0;break;
 				}
 				case 8:{
+					MostrarEstadisticasExtension();
+					Print.pausa();
+					opc=0;break;
+				}
+				case 9:{
 					ing_AluPreAleatorio();
 					opc=0;
 					break;
 				}
-				case 9:{
+				case 10:{
 					ing_AluExtAleatorio();
 					opc=0;
 					break;
 				}
 				
-				case 10:{
+				case 11:{
 					acerca_de();
 					Print.pausa("PRESIONE ENTER PARA CONTINUAR");
 					opc = 0;
@@ -206,13 +211,14 @@ public static byte menu(){
 				Print.outSln("4.- MOSTRAR EL LISTADO DE LOS ALUMNOS DE EXTENSION");
 				Print.outSln("5.- CUADRO DE HONOR PREGRADO");
 				Print.outSln("6.- CUADRO DE HONOR EXTENSION");
-				Print.outSln("7.- ESTADISTICAS");
+				Print.outSln("7.- ESTADISTICAS PREGRADO");
+				Print.outSln("8.- ESTADISTICAS EXTENSION");
 				//Print.outSln("5.- Borrar a algun estudiante");
 				Print.endl(2);
 				
-				Print.outSln("8.- GENERAR ALUMNO DE PREGRADO ALEATORIO");
-				Print.outSln("9.- GENERAR ALUMNO DE EXTENSION ALEATORIO");
-				Print.outSln("10.- Acerca del Programa");
+				Print.outSln("9.- GENERAR ALUMNO DE PREGRADO ALEATORIO");
+				Print.outSln("10.- GENERAR ALUMNO DE EXTENSION ALEATORIO");
+				Print.outSln("11.- Acerca del Programa");
 				Print.endl(1);
 				opc = C.in_byte("SELECCIONE UNA OPCION: [  ]\b\b\b");
 		return opc;
@@ -321,7 +327,7 @@ public static byte menu(){
 		}
 	}
 	
-	public static void MostrarEstadisticas(){
+	public static void MostrarEstadisticasPregrado(){
 		Print.outCenln("ALUMNOS DE PREGRADO");
 		Print.endl(1);
 		Print.outSln("PROMEDIO GENERAL: " + AluPre.promedio_total());
@@ -329,11 +335,33 @@ public static byte menu(){
 		Print.outSln("TOTAL DE ALUMNOS APROBADOS: " + AluPre.getAprobados());
 		Print.outSln("TOTAL DE ALUMNOS REPROBADOS: " + AluPre.getReprobados());
 		
-		Print.outSln("TOTAL DE ALUMNOS IGUAL O POR ENCIMA DEL PORMEDIO: " + estudiantesEncimaDelPromedio(extension));
-		Print.outSln("TOTAL DE ALUMNOS POR DEBAJO DEL PROMEDIO: " + (extension.size()-estudiantesEncimaDelPromedio(extension)));
+		Print.outSln("TOTAL DE ALUMNOS IGUAL O POR ENCIMA DEL PORMEDIO: " + estudiantesEncimaDelPromedioPre(pregrado));
+		Print.outSln("TOTAL DE ALUMNOS POR DEBAJO DEL PROMEDIO: " + (pregrado.size()-estudiantesEncimaDelPromedioPre(pregrado)));
 	}
 	
-	public static int estudiantesEncimaDelPromedio(ArrayList<AluExt> estudiantes){
+	public static int estudiantesEncimaDelPromedioPre(ArrayList<AluPre> estudiantes){
+		int cantidad = 0;
+		for(AluPre alu : estudiantes){
+			if(alu.promedio >= AluPre.promedio_total()){
+				cantidad++;
+			}
+		}
+		return cantidad;
+	}
+	
+	public static void MostrarEstadisticasExtension(){
+		Print.outCenln("ALUMNOS DE EXTENSION");
+		Print.endl(1);
+		Print.outSln("PROMEDIO GENERAL: " + AluExt.promedio_total());
+		Print.endl(2);
+		Print.outSln("TOTAL DE ALUMNOS APROBADOS: " + AluExt.getAprobados());
+		Print.outSln("TOTAL DE ALUMNOS REPROBADOS: " + AluExt.getReprobados());
+		
+		Print.outSln("TOTAL DE ALUMNOS IGUAL O POR ENCIMA DEL PORMEDIO: " + estudiantesEncimaDelPromedioExt(extension));
+		Print.outSln("TOTAL DE ALUMNOS POR DEBAJO DEL PROMEDIO: " + (extension.size()-estudiantesEncimaDelPromedioExt(extension)));
+	}
+	
+	public static int estudiantesEncimaDelPromedioExt(ArrayList<AluExt> estudiantes){
 		int cantidad = 0;
 		for(AluExt alu : estudiantes){
 			if(alu.promedio >= AluExt.promedio_total()){
@@ -342,8 +370,6 @@ public static byte menu(){
 		}
 		return cantidad;
 	}
-	
-	
 
 	
 	public static final void acerca_de(){
@@ -358,7 +384,7 @@ public static byte menu(){
 	System.out.print("          ");
 	System.out.println("Cedula de Identidad: 23.863.118");
 	System.out.print("          ");
-	System.out.println("Programa realizado por: Jos� Delgado");
+	System.out.println("Programa realizado por: Jose Delgado");
 	System.out.print("          ");
 	System.out.println("Cedula de Identidad: ");
 	System.out.print("          ");
