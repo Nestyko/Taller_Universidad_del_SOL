@@ -16,9 +16,9 @@ public class AluPre extends Estudiante
 			cant_alumnos++;
 			this.carrera = carrera;
 			this.semestre = semestre;
-			cant_alumnos_semestre[semestre]++;
+			cant_alumnos_semestre[semestre-1]++;
 			this.num_materias = materias;
-			cant_alumnos_materias[num_materias]++;
+			cant_alumnos_materias[num_materias-1]++;
 			this.notas = new float [num_materias];
 			this.notas = notas;
 			this.promedio = PromNot();

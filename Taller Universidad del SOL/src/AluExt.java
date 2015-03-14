@@ -28,7 +28,7 @@ public class AluExt extends Estudiante
 	{	super(A,No,Ce,Na);
 		this.curso = C;
 		nivel = N;
-		cant_alumnos_nivel[nivel]++;
+		cant_alumnos_nivel[nivel-1]++;
 		this.notas = new float [nivel];
 		notas = Nt;
 		promedio = PromNot();
