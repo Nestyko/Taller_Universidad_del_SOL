@@ -59,11 +59,26 @@ public static void separador(){
 	endl(1);
 }
 
+/**
+ * Imprime n cantidad de "-" e ingresa una nueva linea
+ * @param n es la cantidad de "-"
+ */
+public static void separador(int n){
+	for(int i = 0;i<n;i++){
+		System.out.print("-");
+	}
+	endl(1);
+}
+
 //Imprime el mensaje
 public static void outln(String mensaje){
 	System.out.println(mensaje);
 }
 
+/**
+ * Imprime espacios n cantidad de veces
+ * @param n
+ */
 public static void espacio(int n){
 	for(int i = 0;i<n ;i++)
 	System.out.print(" ");
@@ -194,6 +209,68 @@ public static  void imprimir_fila(int[] vec){
 				}//for
 			}//else
 		}//imprimir
+
+/**
+ * Imprime una fila con un titulo, con celdas de estapacio 10 y con un titulo unico 
+ * para cada columna que utiliza un contador. Por ejempo Columna1 , Columna2, etc.
+ * @param vec vector con los datos
+ * @param titulo nombre para la fila
+ * @param columna nombre para todas las columnas
+ */
+public static  void imprimir_fila(int[] vec, String titulo, String columna){
+	int cant_columnas = vec.length;
+	int cant_filas = 1;
+	if(vec.length < 7){
+		cant_columnas = vec.length;
+		cant_filas = 1;
+		}
+	else if((vec.length >= 7) && (vec.length < 14)){
+		cant_columnas = 6;
+		cant_filas = 2;
+	}
+	
+
+	
+
+			if ((columna.length() < 7) && (titulo.length() < 7)) {
+				final int esp = 9;
+				final float esp_col = (float)((esp - (columna.length() + 2))*0.5);
+				
+				Print.espacio((80-(cant_columnas*10))/2);
+				Print.separador(((cant_columnas+1)*10)+1);
+				Print.espacio((80-(cant_columnas*10))/2);
+				Print.out("|");
+				Print.espacio(esp);
+				Print.out("|");
+				if((esp_col > 0) && (esp_col < 1)){
+					for (int j = 0; j < cant_columnas; j++) {
+						Print.out(columna + " " + (j + 1));
+						Print.espacio(1);
+						Print.out("|");
+					}
+				}else if(esp_col >= 1){
+					for (int j = 0; j < cant_columnas; j++) {
+						Print.espacio((int)esp_col);
+						Print.out(columna + " " + (j + 1));
+						Print.espacio((int)esp_col);
+						Print.out("|");
+					}
+				}
+				Print.endl(1);
+				//Print.espacio((80-(cant_columnas*10))/2);
+				Print.espacio((80-(cant_columnas*10))/2);
+				Print.separador(((cant_columnas+1)*10)+1);
+				//Print.endl(1);
+				//Imprimir casilla de titulo
+				Print.espacio((80-(cant_columnas*10))/2);
+				Print.out("|");
+				Print.espacio((int)esp_col);
+				Print.out(titulo);
+				Print.espacio((int)esp_col);
+				Print.out("|");
+		}
+			
+	}//imprimir_fila
 
 	//Imprime Doubles de menos de 10 caracteres en forma de fila
 	//Llena la pantalla si empieza en el espacio 8

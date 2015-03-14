@@ -15,10 +15,10 @@ public class Prueba_Clases{
 	
 	public static void main (String[] args){
 
-		int[] vec = new int[30];
+		int[] vec = new int[5];
 		vec = Aleatorio.vector(vec , 20);
 		
-		Print.imprimir_fila(vec);
+		Print.imprimir_fila(vec , "Notas" , "Mat");
 		
 //		for (int i = 0; i < vec.length; i++) {
 //			System.out.println(vec[i]);
