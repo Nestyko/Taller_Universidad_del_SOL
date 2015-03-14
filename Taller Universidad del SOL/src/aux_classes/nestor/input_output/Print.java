@@ -224,7 +224,7 @@ public static  void imprimir_fila(float[] vec, String titulo, String columna){
 	if (((columna.length() >= 7) || ((titulo.length() >= 7))) || (vec.length >= 10)) {
 		float aux = (float) cant_columnas / 3;
 		cant_filas = 0;
-		if (aux % 2 == 0) {
+		if ((aux % 2 == 0) || (aux == 1)) {
 			cant_filas = (int) aux;
 		} else {
 			cant_filas = (int) aux + 1;
@@ -346,7 +346,7 @@ public static void imprimir_tabla(float[] vec, final byte MAX_Colum,final int es
 	Print.endl(1);
 	Print.espacio(sangria);
 	Print.separador(tam_fila);
-		if(cant_columnas_aux > 3){
+		if(cant_columnas_aux >= 3){
 			cant_columnas_aux -= 3; 
 		}
 	}
