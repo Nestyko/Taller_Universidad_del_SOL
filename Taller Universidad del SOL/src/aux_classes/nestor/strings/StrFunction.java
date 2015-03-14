@@ -1,5 +1,7 @@
 package aux_classes.nestor.strings;
 
+import java.util.ArrayList;
+
 
 public class StrFunction{
 	
@@ -8,7 +10,6 @@ public class StrFunction{
 	public static int distancia_primera_ultima(String cadena, char buscar){
 		return (cadena.lastIndexOf(buscar)-cadena.indexOf(buscar));
 	}
-	
 	
 	
 	
