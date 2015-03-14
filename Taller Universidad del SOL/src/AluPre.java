@@ -3,6 +3,7 @@ import java.util.ArrayList;
 import aux_classes.jose.Fecha;
 import aux_classes.jose.MCursor;
 import aux_classes.nestor.Ordenar;
+import aux_classes.nestor.input_output.Print;
 
 
 
@@ -16,9 +17,9 @@ public class AluPre extends Estudiante
 			cant_alumnos++;
 			this.carrera = carrera;
 			this.semestre = semestre;
-			cant_alumnos_semestre[semestre]++;
+			cant_alumnos_semestre[semestre-1]++;
 			this.num_materias = materias;
-			cant_alumnos_materias[num_materias]++;
+			cant_alumnos_materias[num_materias-1]++;
 			this.notas = new float [num_materias];
 			this.notas = notas;
 			this.promedio = PromNot();
@@ -108,7 +109,7 @@ public class AluPre extends Estudiante
 		MCursor.TCen(20,"SEMESTRE = "+semestre);
 		MCursor.TCen(20,"MATERIAS INSCRITAS = "+num_materias);
 		MCursor.TCen(20,"NOTA DE LAS MATERIAS");
-		for(int i=0; i<num_materias; i++) MCursor.TCen(25,"MATERIA ["+(i+1)+"] = "+notas[i]);
+		Print.imprimir_fila(notas, "NOTAS", "MATERIA");
 		MCursor.TCen(10,"------------------------------------------------------------");
 		MCursor.TCen(20,"PROMEDIO = "+promedio);
 		MCursor.TCen(10,"------------------------------------------------------------");
