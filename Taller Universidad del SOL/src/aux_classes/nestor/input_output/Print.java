@@ -217,28 +217,96 @@ public static  void imprimir_fila(int[] vec){
  * @param titulo nombre para la fila
  * @param columna nombre para todas las columnas
  */
-public static  void imprimir_fila(int[] vec, String titulo, String columna){
+public static  void imprimir_fila(float[] vec, String titulo, String columna){
 	int cant_columnas = vec.length;
-	int cant_filas = 1;
-	if(vec.length < 7){
-		cant_columnas = vec.length;
-		cant_filas = 1;
-		}
-	else if((vec.length >= 7) && (vec.length < 14)){
-		cant_columnas = 6;
-		cant_filas = 2;
+	float aux = (float)cant_columnas/7;
+	int cant_filas = 0;
+	if(aux % 2 == 0){
+		cant_filas = (int)aux;
+	}else{
+		cant_filas = (int)aux+1;
 	}
 	
-
-	
+	if((columna.length() >= 7) || ( (titulo.length() >= 7))){
+		final int esp = 15;
+		final float esp_col = (float)((esp - (columna.length() + 2))*0.5);
+		final float esp_col2 = (float)((esp - (titulo.length()))*0.5);
+		final int sangria = ((80-(((cant_columnas+1)*esp+1)+1))/2);
+		final int tam_fila = ((cant_columnas+1)*esp+1)+1;
+		Print.espacio(sangria);
+		Print.separador(tam_fila);
+		Print.espacio(sangria);
+		Print.out("|");
+		Print.espacio(esp);
+		Print.out("|");
+		if((esp_col > 0) && (esp_col < 1)){
+			for (int j = 0; j < cant_columnas; j++) {
+				Print.out(columna + " " + (j + 1));
+				Print.espacio(1);
+				Print.out("|");
+			}
+		}else if(esp_col >= 1){
+			if(esp_col % 2 == 0){
+				for (int j = 0; j < cant_columnas; j++) {
+					Print.espacio((int)esp_col);
+					Print.out(columna + " " + (j + 1));
+					Print.espacio((int)esp_col);
+					Print.out("|");
+				}
+			}else{
+				for (int j = 0; j < cant_columnas; j++) {
+					Print.espacio((int)esp_col);
+					Print.out(columna + " " + (j + 1));
+					Print.espacio((int)Math.round(esp_col));
+					Print.out("|");
+				}
+			}
+			
+		}
+		Print.endl(1);
+		//Print.espacio((80-(cant_columnas*10))/2);
+		Print.espacio(sangria);
+		Print.separador(tam_fila);
+		//Print.endl(1);
+		//Imprimir casilla de titulo
+		Print.espacio(sangria);
+		Print.out("|");
+		Print.espacio((int)esp_col2);
+		Print.out(titulo);
+		Print.espacio((int)Math.round(esp_col2));
+		Print.out("|");
+		
+		
+			float esp_col1 = 0;
+		for (int j= 0; j < cant_columnas; j++) {
+			esp_col1 = (float)((esp - (((int)vec[j]+"").length() + 3))*0.5);
+			if((esp_col1 > 0) && (esp_col1 < 1)){
+				System.out.printf("%.2f", vec[j]);
+				Print.espacio((int)Math.round(esp_col1));
+				Print.out("|");
+			}
+			else if(esp_col1 >= 1) {
+					Print.espacio((int)(esp_col1));
+					System.out.printf("%.2f", vec[j]);
+					Print.espacio((int)Math.round(esp_col1));
+					Print.out("|");
+			}
+		}
+		Print.endl(1);
+		Print.espacio(sangria);
+		Print.separador(tam_fila);
+		
+	}
 
 			if ((columna.length() < 7) && (titulo.length() < 7)) {
 				final int esp = 9;
 				final float esp_col = (float)((esp - (columna.length() + 2))*0.5);
-				
-				Print.espacio((80-(cant_columnas*10))/2);
-				Print.separador(((cant_columnas+1)*10)+1);
-				Print.espacio((80-(cant_columnas*10))/2);
+				final float esp_col2 = (float)((esp - (titulo.length()))*0.5);
+				final int sangria = ((80-(((cant_columnas+1)*esp+1)+1))/2);
+				final int tam_fila = ((cant_columnas+1)*(esp+1))+1;
+				Print.espacio(sangria);
+				Print.separador(tam_fila);
+				Print.espacio(sangria);
 				Print.out("|");
 				Print.espacio(esp);
 				Print.out("|");
@@ -252,25 +320,52 @@ public static  void imprimir_fila(int[] vec, String titulo, String columna){
 					for (int j = 0; j < cant_columnas; j++) {
 						Print.espacio((int)esp_col);
 						Print.out(columna + " " + (j + 1));
-						Print.espacio((int)esp_col);
+						Print.espacio((int)Math.round(esp_col));
 						Print.out("|");
 					}
 				}
 				Print.endl(1);
 				//Print.espacio((80-(cant_columnas*10))/2);
-				Print.espacio((80-(cant_columnas*10))/2);
-				Print.separador(((cant_columnas+1)*10)+1);
+				Print.espacio(sangria);
+				Print.separador(tam_fila);
 				//Print.endl(1);
 				//Imprimir casilla de titulo
-				Print.espacio((80-(cant_columnas*10))/2);
+				Print.espacio(sangria);
 				Print.out("|");
-				Print.espacio((int)esp_col);
+				Print.espacio((int)esp_col2);
 				Print.out(titulo);
-				Print.espacio((int)esp_col);
+				Print.espacio((int)Math.round(esp_col2));
 				Print.out("|");
+					float esp_col1 = 0;
+				for (int j= 0; j < cant_columnas; j++) {
+					esp_col1 = (float)((esp - (((int)vec[j]+"").length() + 3))*0.5);
+					if((esp_col1 > 0) && (esp_col1 < 1)){
+						System.out.printf("%.2f", vec[j]);
+						Print.espacio((int)Math.round(esp_col1));
+						Print.out("|");
+					}
+					else if(esp_col1 >= 1) {
+						if(esp_col1 % 2 == 0){
+						Print.espacio((int)(esp_col1));
+						System.out.printf("%.2f", vec[j]);
+						Print.espacio((int)(esp_col1));
+						Print.out("|");
+						}
+						else{
+							Print.espacio((int)(esp_col1));
+							System.out.printf("%.2f", vec[j]);
+							Print.espacio((int)Math.round(esp_col1));
+							Print.out("|");
+						}
+					}
+				}
+				Print.endl(1);
+				Print.espacio(sangria);
+				Print.separador(tam_fila);
 		}
 			
 	}//imprimir_fila
+
 
 	//Imprime Doubles de menos de 10 caracteres en forma de fila
 	//Llena la pantalla si empieza en el espacio 8
