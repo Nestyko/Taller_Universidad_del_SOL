@@ -269,10 +269,10 @@ public static byte menu(){
 	
 	public static void CuadroDeHonor_AluPre(){
 		ArrayList<AluPre> estudiantes = new ArrayList<AluPre>();
-		estudiantes = pregrado;
+		estudiantes.addAll(pregrado);
 		estudiantes = AluPre.OrdenarPorPromedio(estudiantes);
 		
-		Print.outCenln("MEJORES NOTAS DE PREGRADO");
+		Print.outCenln("MEJOR NOTA DE PREGRADO");
 		boolean primera = true;
 		for (AluPre alu : estudiantes) {
 			if(alu.promedio == estudiantes.get(0).promedio){
@@ -292,10 +292,10 @@ public static byte menu(){
 	
 	public static void CuadroDeHonor_AluExt(){
 		ArrayList<AluExt> estudiantes = new ArrayList<AluExt>();
-		estudiantes = extension;
+		estudiantes.addAll(extension);
 		estudiantes = AluExt.OrdenarPorPromedio(estudiantes);
 
-		Print.outCenln("MEJORES NOTAS DE PREGRADO");
+		Print.outCenln("MEJOR NOTA DE EXTENSION");
 		boolean primera = true;
 		for (AluExt alu : estudiantes) {
 			if(alu.promedio == estudiantes.get(0).promedio){
