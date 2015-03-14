@@ -89,8 +89,8 @@ public class AluExt extends Estudiante
 	public static ArrayList<AluExt> OrdenarPorApellido(ArrayList<AluExt> estudiante){
 		if (estudiante.size() > 1) {
 			AluExt temp;
-			for (int i = 0; i < (estudiante.size()); i++) {
-				for (int j = 0; j < (estudiante.size()); j++) {
+			for (int i = 0; i < (estudiante.size()-1); i++) {
+				for (int j = 0; j < (estudiante.size()-1); j++) {
 					if (estudiante.get(j).apellido.compareTo(estudiante
 							.get(j + 1).apellido) > 0) {
 						temp = estudiante.get(j);

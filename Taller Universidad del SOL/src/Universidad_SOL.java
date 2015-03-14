@@ -297,7 +297,7 @@ public static byte menu(){
 
 		Print.outCenln("MEJORES NOTAS DE PREGRADO");
 		boolean primera = true;
-		for (AluPre alu : estudiantes) {
+		for (AluExt alu : estudiantes) {
 			if(alu.promedio == estudiantes.get(0).promedio){
 				Print.outCenln("--->   " + alu.apellido + ", " + alu.nombre + ": " + alu.promedio);
 			}
