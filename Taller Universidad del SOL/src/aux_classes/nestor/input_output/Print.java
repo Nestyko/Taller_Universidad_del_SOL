@@ -197,7 +197,11 @@ public static  void imprimir_fila(int[] vec){
 
 	//Imprime Doubles de menos de 10 caracteres en forma de fila
 	//Llena la pantalla si empieza en el espacio 8
-
+/**
+ * Imprime Doubles de menos de 10 caracteres en forma de fila. 
+ * Llena la pantalla si empieza en el espacio 8
+ * @param vec vector a imprimir
+ */
 public static  void imprimir_fila(double[] vec){
 	if (vec.length > 6){
 	for (int i = 0; i < 6;i++){
@@ -218,7 +222,11 @@ public static  void imprimir_fila(double[] vec){
 		}
 
 		//Empieza el vector desde la posicion i
-
+		/**
+		 * Imprimir el vector en forma de fila
+		 * @param vec vector a imprimir
+		 * @param i posicion desde la cual comenzar a imprimir
+		 */
 		public static  void imprimir_fila(double[] vec, int i){
 
 					for (; i < vec.length;i++){
