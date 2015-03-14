@@ -253,6 +253,10 @@ public static byte menu(){
 		Aleatorio hobbit = new Aleatorio();
 		Fecha nacimiento = new Fecha(hobbit.getDia(),hobbit.getMes(),hobbit.getYear());
 		byte materias = 0;
+		byte semestre = 0;
+		while((semestre == 0) || (semestre > 12)){
+		semestre = (byte)(Math.random()*12);
+		}
 		while(materias == 0){
 			materias = (byte) (Math.random()*8);
 		}
@@ -260,7 +264,7 @@ public static byte menu(){
 		notas = Aleatorio.vector(notas, 21);
 		
 		AluPre nuevo = new AluPre(hobbit.getApellido(),hobbit.getNombre(), hobbit.getCedula(), 
-				nacimiento, "Carrera aleatoria", (byte)(Math.random()*12),materias, notas);
+				nacimiento, "Carrera aleatoria",semestre,materias, notas);
 		
 		pregrado.add(nuevo);
 		pregrado = AluPre.OrdenarPorApellido(pregrado);
@@ -270,7 +274,7 @@ public static byte menu(){
 		Aleatorio hobbit = new Aleatorio();
 		Fecha nacimiento = new Fecha(hobbit.getDia(),hobbit.getMes(),hobbit.getYear());
 		byte nivel = 0;
-		while (nivel == 0){
+		while ((nivel == 0) || (nivel > 6)){
 		nivel = (byte) (Math.random()*6);
 		}
 		float[] notas = new float[nivel];
