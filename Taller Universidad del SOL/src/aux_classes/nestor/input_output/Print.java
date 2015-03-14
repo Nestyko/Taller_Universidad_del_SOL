@@ -219,152 +219,139 @@ public static  void imprimir_fila(int[] vec){
  */
 public static  void imprimir_fila(float[] vec, String titulo, String columna){
 	int cant_columnas = vec.length;
-	float aux = (float)cant_columnas/7;
-	int cant_filas = 0;
-	if(aux % 2 == 0){
-		cant_filas = (int)aux;
-	}else{
-		cant_filas = (int)aux+1;
-	}
 	
-	if((columna.length() >= 7) || ( (titulo.length() >= 7))){
-		final int esp = 15;
-		final float esp_col = (float)((esp - (columna.length() + 2))*0.5);
-		final float esp_col2 = (float)((esp - (titulo.length()))*0.5);
-		final int sangria = ((80-(((cant_columnas+1)*esp+1)+1))/2);
-		final int tam_fila = ((cant_columnas+1)*esp+1)+1;
-		Print.espacio(sangria);
-		Print.separador(tam_fila);
-		Print.espacio(sangria);
-		Print.out("|");
-		Print.espacio(esp);
-		Print.out("|");
-		if((esp_col > 0) && (esp_col < 1)){
-			for (int j = 0; j < cant_columnas; j++) {
-				Print.out(columna + " " + (j + 1));
-				Print.espacio(1);
-				Print.out("|");
-			}
-		}else if(esp_col >= 1){
-			if(esp_col % 2 == 0){
-				for (int j = 0; j < cant_columnas; j++) {
-					Print.espacio((int)esp_col);
-					Print.out(columna + " " + (j + 1));
-					Print.espacio((int)esp_col);
-					Print.out("|");
-				}
-			}else{
-				for (int j = 0; j < cant_columnas; j++) {
-					Print.espacio((int)esp_col);
-					Print.out(columna + " " + (j + 1));
-					Print.espacio((int)Math.round(esp_col));
-					Print.out("|");
-				}
-			}
-			
+	int cant_filas;
+	if (((columna.length() >= 7) || ((titulo.length() >= 7))) || (vec.length >= 10)) {
+		float aux = (float) cant_columnas / 3;
+		cant_filas = 0;
+		if (aux % 2 == 0) {
+			cant_filas = (int) aux;
+		} else {
+			cant_filas = (int) aux + 1;
 		}
-		Print.endl(1);
-		//Print.espacio((80-(cant_columnas*10))/2);
-		Print.espacio(sangria);
-		Print.separador(tam_fila);
-		//Print.endl(1);
-		//Imprimir casilla de titulo
-		Print.espacio(sangria);
-		Print.out("|");
-		Print.espacio((int)esp_col2);
-		Print.out(titulo);
-		Print.espacio((int)Math.round(esp_col2));
-		Print.out("|");
-		
-		
-			float esp_col1 = 0;
-		for (int j= 0; j < cant_columnas; j++) {
-			esp_col1 = (float)((esp - (((int)vec[j]+"").length() + 3))*0.5);
-			if((esp_col1 > 0) && (esp_col1 < 1)){
-				System.out.printf("%.2f", vec[j]);
-				Print.espacio((int)Math.round(esp_col1));
-				Print.out("|");
-			}
-			else if(esp_col1 >= 1) {
-					Print.espacio((int)(esp_col1));
-					System.out.printf("%.2f", vec[j]);
-					Print.espacio((int)Math.round(esp_col1));
-					Print.out("|");
-			}
+	}else{
+		float aux = (float) cant_columnas / 7;
+		cant_filas = 0;
+		if (aux % 2 == 0) {
+			cant_filas = (int) aux;
+		} else {
+			cant_filas = (int) aux + 1;
 		}
-		Print.endl(1);
-		Print.espacio(sangria);
-		Print.separador(tam_fila);
-		
 	}
+	int cant_columnas_aux =  cant_columnas;
+	cant_columnas = 0;
+	int col = 0;
+	int col2 = 0;
+	
+		
+		if ((columna.length() >= 7) || ((titulo.length() >= 7)) || (vec.length >= 10)) {
+			imprimir_tabla(vec, (byte)3, 15, cant_filas, cant_columnas_aux, cant_columnas, 
+					titulo, columna, col, col2);
 
-			if ((columna.length() < 7) && (titulo.length() < 7)) {
-				final int esp = 9;
-				final float esp_col = (float)((esp - (columna.length() + 2))*0.5);
-				final float esp_col2 = (float)((esp - (titulo.length()))*0.5);
-				final int sangria = ((80-(((cant_columnas+1)*esp+1)+1))/2);
-				final int tam_fila = ((cant_columnas+1)*(esp+1))+1;
-				Print.espacio(sangria);
-				Print.separador(tam_fila);
-				Print.espacio(sangria);
-				Print.out("|");
-				Print.espacio(esp);
-				Print.out("|");
-				if((esp_col > 0) && (esp_col < 1)){
-					for (int j = 0; j < cant_columnas; j++) {
-						Print.out(columna + " " + (j + 1));
-						Print.espacio(1);
-						Print.out("|");
-					}
-				}else if(esp_col >= 1){
-					for (int j = 0; j < cant_columnas; j++) {
-						Print.espacio((int)esp_col);
-						Print.out(columna + " " + (j + 1));
-						Print.espacio((int)Math.round(esp_col));
-						Print.out("|");
-					}
-				}
-				Print.endl(1);
-				//Print.espacio((80-(cant_columnas*10))/2);
-				Print.espacio(sangria);
-				Print.separador(tam_fila);
-				//Print.endl(1);
-				//Imprimir casilla de titulo
-				Print.espacio(sangria);
-				Print.out("|");
-				Print.espacio((int)esp_col2);
-				Print.out(titulo);
-				Print.espacio((int)Math.round(esp_col2));
-				Print.out("|");
-					float esp_col1 = 0;
-				for (int j= 0; j < cant_columnas; j++) {
-					esp_col1 = (float)((esp - (((int)vec[j]+"").length() + 3))*0.5);
-					if((esp_col1 > 0) && (esp_col1 < 1)){
-						System.out.printf("%.2f", vec[j]);
-						Print.espacio((int)Math.round(esp_col1));
-						Print.out("|");
-					}
-					else if(esp_col1 >= 1) {
-						if(esp_col1 % 2 == 0){
-						Print.espacio((int)(esp_col1));
-						System.out.printf("%.2f", vec[j]);
-						Print.espacio((int)(esp_col1));
-						Print.out("|");
-						}
-						else{
-							Print.espacio((int)(esp_col1));
-							System.out.printf("%.2f", vec[j]);
-							Print.espacio((int)Math.round(esp_col1));
-							Print.out("|");
-						}
-					}
-				}
-				Print.endl(1);
-				Print.espacio(sangria);
-				Print.separador(tam_fila);
 		}
+		else if ((columna.length() < 7) && (titulo.length() < 7) && (vec.length < 10)) {
+			
+			imprimir_tabla(vec, (byte)6, 9, cant_filas, cant_columnas_aux, cant_columnas, 
+					titulo, columna, col, col2);
+				
+		}
+		
+		
 			
 	}//imprimir_fila
+
+public static void imprimir_tabla(float[] vec, final byte MAX_Colum,final int esp,int cant_filas, int cant_columnas_aux, 
+		int cant_columnas, String titulo, String columna, int col, int col2 ){
+	for (int i = 0; i < cant_filas; i++) {
+	
+	if(cant_columnas_aux > MAX_Colum){
+		cant_columnas += MAX_Colum;
+	}else{
+		cant_columnas += cant_columnas_aux;
+	}
+	final float esp_col2 = (float) ((esp - (titulo.length())) * 0.5);
+	int sangria = 0;
+	int tam_fila = 0;
+	float esp_col = 0;
+	if(cant_columnas_aux > MAX_Colum){
+	sangria = ((80 - (((MAX_Colum + 1) * (esp + 1)) + 1)) / 2);
+	tam_fila = ((MAX_Colum + 1) * (esp + 1)) + 1;
+	}
+	else{
+		sangria = ((80 - (((cant_columnas_aux + 1) * (esp + 1)) + 1)) / 2);
+		tam_fila = ((cant_columnas_aux + 1) * (esp + 1)) + 1;
+	}
+	Print.espacio(sangria);
+	Print.separador(tam_fila);
+	Print.espacio(sangria);
+	Print.out("|");
+	Print.espacio(esp);
+	Print.out("|");
+	for (; col < cant_columnas; col++) {
+		esp_col = (float) ((esp - (columna.length() + (((col+1)+"").length())+1)) * 0.5);
+	if ((esp_col > 0) && (esp_col < 1)) {
+			Print.out(columna + " " + (col + 1));
+			Print.espacio(1);
+			Print.out("|");
+	} else if(((esp_col*2)+((col+"").length())) > esp){
+		Print.espacio((int) esp_col);
+		Print.out(columna + " " + (col + 1));
+		Print.espacio((int) (Math.round(esp_col))-1);
+		Print.out("|");
+	}
+	
+	else if (esp_col >= 1) {
+			if(esp_col % 2 == 0){
+				Print.espacio((int) esp_col);
+				Print.out(columna + " " + (col + 1));
+				Print.espacio((int)(esp_col));
+				Print.out("|");
+			}
+			else{
+				Print.espacio((int) esp_col);
+				Print.out(columna + " " + (col + 1));
+				Print.espacio((int) Math.round(esp_col));
+				Print.out("|");
+			}
+			
+		}
+	}
+	Print.endl(1);
+	//Print.espacio((80-(cant_columnas*10))/2);
+	Print.espacio(sangria);
+	Print.separador(tam_fila);
+	//Print.endl(1);
+	//Imprimir casilla de titulo
+	Print.espacio(sangria);
+	Print.out("|");
+	Print.espacio((int) esp_col2);
+	Print.out(titulo);
+	Print.espacio((int) Math.round(esp_col2));
+	Print.out("|");
+	float esp_col1 = 0;
+	for (; col2 < cant_columnas; col2++) {
+		esp_col1 = (float) ((esp - (((int) vec[col2] + "").length() + 3)) * 0.5);
+		if ((esp_col1 > 0) && (esp_col1 < 1)) {
+			System.out.printf("%.2f", vec[col2]);
+			Print.espacio((int) Math.round(esp_col1));
+			Print.out("|");
+		} 
+		else if (esp_col1 >= 1) {
+				Print.espacio((int) (esp_col1));
+				System.out.printf("%.2f", vec[col2]);
+				Print.espacio((int) Math.round(esp_col1));
+				Print.out("|");
+		}
+	}
+	Print.endl(1);
+	Print.espacio(sangria);
+	Print.separador(tam_fila);
+		if(cant_columnas_aux > 3){
+			cant_columnas_aux -= 3; 
+		}
+	}
+}
+
 
 
 	//Imprime Doubles de menos de 10 caracteres en forma de fila
