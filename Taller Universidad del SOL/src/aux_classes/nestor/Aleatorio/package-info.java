@@ -8,4 +8,4 @@
   * Tambien incluye frutas.
   */
  
-package aux_classes.Aleatorio;
+package aux_classes.nestor.Aleatorio;

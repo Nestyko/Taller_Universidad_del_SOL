@@ -1,11 +1,11 @@
 1.-Preguntar por el maximo de:
 
-	- Semestres
-	- Materias
-	- Niveles
+	- Semestres = 12
+	- Materias = 8
+	- Niveles = 6
 	
 2.- De acuerdo a ese maximo hacer las Validaciones correspondientes
 
 3.- Cambiar otravez a KbInput y (opcional)  modificarlo.
 
-4.- Agregar el constructor para AlumnoPre
+4.- Excepcion de NullPointer en notas[]

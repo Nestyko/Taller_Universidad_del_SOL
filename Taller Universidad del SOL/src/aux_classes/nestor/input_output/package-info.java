@@ -11,4 +11,4 @@
  * C.java contiene la sentencias de lectura que remplazan al Leer de Maria Fossi.
  * Se basa en la libreria Scanner y cada sentencia tiene control de excepciones.
  */
-package aux_classes.input_output;
+package aux_classes.nestor.input_output;

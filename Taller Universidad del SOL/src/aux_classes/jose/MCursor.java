@@ -1,4 +1,5 @@
 // Autor M.Sc. Maria Eugenia Fossi Medina
+package aux_classes.jose;
 public class MCursor
 {
 
@@ -34,7 +35,7 @@ public class MCursor
 	public static void Salida()
 	{	BLinea(2);
 		TCen(26,"PRESIONE ENTER PARA CONTINUAR");
-		Imput.read();
+		KbInput.read();
 		return;
 	}
 }//class

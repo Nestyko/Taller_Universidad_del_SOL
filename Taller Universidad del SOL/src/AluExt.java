@@ -1,3 +1,7 @@
+import aux_classes.jose.Fecha;
+import aux_classes.jose.MCursor;
+import aux_classes.nestor.Ordenar;
+
 public class AluExt extends Estudiante
 {	
 	
@@ -12,7 +16,7 @@ public class AluExt extends Estudiante
 	
 	String curso;
 	byte nivel;
-	byte notas[];
+	float notas[];
 	float promedio;
 
 	//CONSTRUCTOR
@@ -21,15 +25,19 @@ public class AluExt extends Estudiante
 		this.curso = C;
 		nivel = N;
 		cant_alumnos_nivel[nivel]++;
-		float[] notas = new float [nivel];
+		this.notas = new float [nivel];
 		notas = Nt;
 		promedio = PromNot();
 		agregar_promedio(promedio);
 	}//AluExt
 	
+	/**
+	 * Inicializa los contadores y crea los vectores
+	 */
 	public static void comenzar(){
 		cant_alumnos = 0;
-		cant_alumnos_nivel = new int[20];
+		cant_alumnos_nivel = new int[6];
+		cant_alumnos_nivel = Ordenar.inicializar(cant_alumnos_nivel);
 		sumatoria_promedios = 0;
 	}
 

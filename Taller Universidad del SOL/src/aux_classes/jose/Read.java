@@ -1,5 +1,5 @@
 //Jose Delgado
-
+package aux_classes.jose;
 public class Read
 {
 	//METODO PARA LEER NUMEROS TIPO BYTE
@@ -9,7 +9,7 @@ public class Read
 		do
 		{	System.out.print(mensaje);
 		try
-		{	n = Byte.parseByte(Imput.read());
+		{	n = Byte.parseByte(KbInput.read());
 			sal = true;
 		}//try
 		catch(NumberFormatException exc)
@@ -27,7 +27,7 @@ public class Read
 		do
 		{	System.out.print(mensaje);
 		try
-		{	n = Short.parseShort(Imput.read());
+		{	n = Short.parseShort(KbInput.read());
 			sal = true;
 		}//try
 		catch(NumberFormatException exc)
@@ -45,7 +45,7 @@ public class Read
 		do
 		{	System.out.print(mensaje);
 			try
-			{	n = Integer.parseInt(Imput.read());
+			{	n = Integer.parseInt(KbInput.read());
 				sal = true;
 			}//try
 			catch(NumberFormatException exc)
@@ -63,7 +63,7 @@ public class Read
 		do
 		{	System.out.print(mensaje);
 			try
-			{	n = Long.parseLong(Imput.read());
+			{	n = Long.parseLong(KbInput.read());
 				sal = true;
 			}//try
 			catch(NumberFormatException exc)
@@ -81,7 +81,7 @@ public class Read
 		do
 		{	System.out.print(mensaje);
 			try
-			{	n = Float.parseFloat(Imput.read());
+			{	n = Float.parseFloat(KbInput.read());
 				sal = true;
 			}//try
 			catch(NumberFormatException exc)
@@ -99,7 +99,7 @@ public class Read
 		do
 		{	System.out.print(mensaje);
 			try
-			{	n = Double.parseDouble(Imput.read());
+			{	n = Double.parseDouble(KbInput.read());
 				sal = true;
 			}//try
 			catch(NumberFormatException exc)
@@ -113,17 +113,18 @@ public class Read
 	//METODO PARA LEER UN CHAR
 		public static char Cchar (String mensaje)
 		{	System.out.print(mensaje);
-			return ImputChar.read();
+			return KbInputChar.read();
 		}//Cchar
 
 	//METODO PARA LEER UNA CADENA STRING
 	public static String Cstring(String texto)
 		{	String t;
 			do{	System.out.print(texto);
-				t = Imput.read();
+				t = KbInput.read();
 				if((t.startsWith(" ") == true) || (t.length()<=0))
-				{ 	System.out.println("\n\n\nERROR. DEBE INGRESAR UN TEXTO Y COMENZAR SIN");
-				 	System.out.println("             ESPACIOS EN BLANCO\n\n\n");
+				{
+					System.out.println("\t\t\t\t\t\t\t(ERROR) NO INGRESO TEXTO O COMIENZA CON ESPACIO");
+
 				}
 			}while((t.startsWith(" ") == true) || (t.length()<=0));
 			return t;
@@ -132,8 +133,10 @@ public class Read
 
 	//METODO PARA MOSTRAR MENSAJE DE ERROR
 	public static void error()
-	{	System.out.println("\n\n\n\n\n                                E   R   R   O  R");
-	    System.out.println("                              VALOR FUERA DE RANGO\n\n\n\n\n");
+	{	MCursor.BLinea(5);
+		MCursor.TCen(32,"E   R   R   O  R");
+		MCursor.TCen(30,"VALOR FUERA DE RANGO");
+		MCursor.BLinea(5);
 	}//error
 
 }//class

@@ -1,7 +1,10 @@
-import aux_classes.input_output.C;
-import aux_classes.input_output.Print;
+import aux_classes.jose.Fecha;
+import aux_classes.nestor.Aleatorio.Aleatorio;
+import aux_classes.nestor.input_output.C;
+import aux_classes.nestor.input_output.Print;
+
 import java.util.ArrayList;
-import java.io.*;
+
 
 /**
  * 
@@ -22,6 +25,8 @@ public class Universidad_SOL{
 	public static ArrayList<AluExt> extension = new ArrayList<AluExt>();
 	
 	public static void main(String[] args){
+		//inicializar los contadores
+		comenzar();
 
 			byte opc;
 			do{
@@ -103,6 +108,16 @@ public class Universidad_SOL{
 							}
 							opc=0;continue;
 				}
+				case 8:{
+					ing_AluPreAleatorio();
+					opc=0;
+					break;
+				}
+				case 9:{
+					ing_AluExtAleatorio();
+					opc=0;
+					break;
+				}
 				
 				case 10:{
 					acerca_de();
@@ -125,7 +140,14 @@ public class Universidad_SOL{
 
 	}//main
 
-
+/**
+ * Inicializa los contadores staticos de las clases AluPre y AluExt
+ */
+public static void comenzar(){
+	AluPre.comenzar();
+	AluExt.comenzar();
+}
+	
 public static byte menu(){
 
    byte opc;
@@ -145,7 +167,7 @@ public static byte menu(){
 				Print.outSln("6.- Cuadro de Honor");
 				//Print.outSln("5.- Borrar a algun estudiante");
 				Print.endl(2);
-				//Print.outSln("9.- Generar alumnos aleatorios");
+				Print.outSln("8.- GENERAR ALUMNO DE PREGRADO ALEATORIO");
 				Print.outSln("10.- Acerca del Programa");
 				Print.endl(1);
 				opc = C.in_byte("Seleccione una opcion: [  ]\b\b\b");
@@ -175,6 +197,38 @@ public static byte menu(){
 			}
 		} while (aux);
 		return nueva;
+	}
+	
+	public static void ing_AluPreAleatorio(){
+		Aleatorio hobbit = new Aleatorio();
+		Fecha nacimiento = new Fecha(hobbit.getDia(),hobbit.getMes(),hobbit.getYear());
+		byte materias = 0;
+		while(materias == 0){
+			materias = (byte) (Math.random()*8);
+		}
+		float[] notas = new float[materias];
+		notas = Aleatorio.vector(notas, 21);
+		
+		AluPre nuevo = new AluPre(hobbit.getApellido(),hobbit.getNombre(), hobbit.getCedula(), 
+				nacimiento, "Carrera aleatoria", (byte)(Math.random()*12),materias, notas);
+		
+		pregrado.add(nuevo);
+	}
+	
+	public static void ing_AluExtAleatorio(){
+		Aleatorio hobbit = new Aleatorio();
+		Fecha nacimiento = new Fecha(hobbit.getDia(),hobbit.getMes(),hobbit.getYear());
+		byte nivel = 0;
+		while (nivel == 0){
+		nivel = (byte) (Math.random()*6);
+		}
+		float[] notas = new float[nivel];
+		notas = Aleatorio.vector(notas, 21);
+		
+		AluExt nuevo = new AluExt(hobbit.getApellido(),hobbit.getNombre(), hobbit.getCedula(), 
+				nacimiento, "Curso aleatorio", nivel, notas);
+		
+		extension.add(nuevo);
 	}
 
 	

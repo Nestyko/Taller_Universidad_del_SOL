@@ -7,4 +7,4 @@
  * @version 0.1
  *
  */
-package aux_classes.strings;
+package aux_classes.nestor.strings;
