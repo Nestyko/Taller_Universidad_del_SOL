@@ -243,7 +243,7 @@ public static byte menu(){
 		
 		Print.outSln("9.- GENERAR ALUMNO DE PREGRADO ALEATORIO");
 		Print.outSln("10.- GENERAR ALUMNO DE EXTENSION ALEATORIO");
-		Print.outSln("11.- Acerca del Programa");
+		Print.outSln("11.- Acerca del Programa".toUpperCase());
 		Print.endl(1);
 		opc = C.in_byte("SELECCIONE UNA OPCION: [  ]\b\b\b");
 	}else if((pregrado.size() != 0) && (extension.size() == 0)){
@@ -269,7 +269,7 @@ public static byte menu(){
 		
 		Print.outSln("9.- GENERAR ALUMNO DE PREGRADO ALEATORIO");
 		Print.outSln("10.- GENERAR ALUMNO DE EXTENSION ALEATORIO");
-		Print.outSln("11.- Acerca del Programa");
+		Print.outSln("11.- Acerca del Programa".toUpperCase());
 		Print.endl(1);
 		opc = C.in_byte("SELECCIONE UNA OPCION: [  ]\b\b\b");
 	}else if((pregrado.size() == 0) && ( extension.size() != 0)){
@@ -295,7 +295,7 @@ public static byte menu(){
 		
 		Print.outSln("9.- GENERAR ALUMNO DE PREGRADO ALEATORIO");
 		Print.outSln("10.- GENERAR ALUMNO DE EXTENSION ALEATORIO");
-		Print.outSln("11.- Acerca del Programa");
+		Print.outSln("11.- Acerca del Programa".toUpperCase());
 		Print.endl(1);
 		opc = C.in_byte("SELECCIONE UNA OPCION: [  ]\b\b\b");
 	}else{
@@ -324,7 +324,7 @@ public static byte menu(){
 				
 				Print.outSln("9.- GENERAR ALUMNO DE PREGRADO ALEATORIO");
 				Print.outSln("10.- GENERAR ALUMNO DE EXTENSION ALEATORIO");
-				Print.outSln("11.- Acerca del Programa");
+				Print.outSln("11.- Acerca del Programa".toUpperCase());
 				Print.endl(1);
 				opc = C.in_byte("SELECCIONE UNA OPCION: [  ]\b\b\b");
 	}
