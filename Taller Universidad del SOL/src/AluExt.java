@@ -94,7 +94,7 @@ public class AluExt extends Estudiante
 		MCursor.TCen(20,"CURSO = "+curso);
 		MCursor.TCen(20,"NIVELES INSCRITOS = "+nivel);
 		MCursor.TCen(20,"NOTA DE LOS NIVELES");
-		Print.imprimir_fila(notas, "NOTAS", "MATERIA");
+		Print.imprimir_fila(notas, "NOTAS", "NIVEL");
 		MCursor.TCen(10,"------------------------------------------------------------");
 		MCursor.TCen(20,"PROMEDIO = " + promedio);
 		MCursor.TCen(10,"------------------------------------------------------------");

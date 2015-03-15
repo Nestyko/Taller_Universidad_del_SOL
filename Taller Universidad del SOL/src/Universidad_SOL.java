@@ -214,7 +214,7 @@ public static byte menu(){
 				Print.espacio(40);
 				Print.outln("NUMERO DE ALUMNOS Pregrado: " + (pregrado.size()));
 				Print.espacio(40);
-				Print.outln("NUMERO DE ALUMNOS EXTENSION: " + (pregrado.size()+extension.size()));
+				Print.outln("NUMERO DE ALUMNOS EXTENSION: " + (extension.size()));
 				Print.endl(1);
 				Print.outSln("0.- Salir del Programa");
 				Print.outSln("1.- INGRESAR DATOS DE UN ALUMNO DE PREGRADO");
