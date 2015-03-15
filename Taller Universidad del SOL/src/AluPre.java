@@ -62,8 +62,10 @@ public class AluPre extends Estudiante
 
 	//METODO PARA CALCULAR EL PROMEDIO
 	private float PromNot()
-	{	int Tot = 0;
-		for(int i=0; i<num_materias; i++)	Tot += notas[i];
+	{	float Tot = 0;
+		for(int i=0; i<num_materias; i++)	{
+			Tot += notas[i];
+		}
 		return Tot/num_materias;
 		
 	}//PromNot

@@ -50,7 +50,7 @@ public class AluExt extends Estudiante
 
 	//METODO PARA CALCULAR EL PROMEDIO
 	public float PromNot()
-	{	int Tot = 0;
+	{	float Tot = 0;
 		for(int i=0; i<nivel; i++) Tot += notas[i];
 		return Tot/nivel;
 	}//PromNot
