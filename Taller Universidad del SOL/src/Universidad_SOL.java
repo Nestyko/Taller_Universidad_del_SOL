@@ -143,23 +143,41 @@ public class Universidad_SOL{
 							opc=0;continue;
 				}
 				case 5:{
+					if(pregrado.size() != 0){
 					CuadroDeHonor_AluPre();
 					Print.pausa();
+					}
+					else{
+						Print.errorCen("NO HAY ALUMNOS DE PREGRADO REGISTRADOS");
+					}
 					opc = 0; break;
 				}
 				case 6:{
+					if(extension.size() != 0){
 					CuadroDeHonor_AluExt();
 					Print.pausa();
+					}
+					else{
+						Print.errorCen("NO HAY ALUMNOS DE EXTENSION REGISTRADOS");
+					}
 					opc=0;break;
 				}
 				case 7:{
-					MostrarEstadisticasPregrado();
-					Print.pausa();
+					if (pregrado.size() != 0) {
+						MostrarEstadisticasPregrado();
+						Print.pausa();
+					} else {
+						Print.errorCen("NO HAY ALUMNOS DE PREGRADO REGISTRADOS");
+					}
 					opc=0;break;
 				}
 				case 8:{
-					MostrarEstadisticasExtension();
-					Print.pausa();
+					if (extension.size() != 0) {
+						MostrarEstadisticasExtension();
+						Print.pausa();
+					} else {
+						Print.errorCen("NO HAY ALUMNOS DE EXTENSION REGISTRADOS");
+					}
 					opc=0;break;
 				}
 				case 9:{
@@ -203,8 +221,84 @@ public static void comenzar(){
 }
 	
 public static byte menu(){
+	
+	byte opc;
+	if((pregrado.size() == 0) && ( extension.size() == 0)){
+		Print.separador();
+		Print.outCenln("2do TALLER DE PROGRAMACION");
+		Print.outCenln("UNIVERSIDAD DEL SOL");
+		Print.separador();
+		Print.espacio(40);
+		Print.outln("NUMERO DE ALUMNOS REGISTRADOS: " + (pregrado.size()+extension.size()));// + variable que cuenta el numero de vendedores
+		Print.espacio(40);
+		Print.outln("NUMERO DE ALUMNOS Pregrado: " + (pregrado.size()));
+		Print.espacio(40);
+		Print.outln("NUMERO DE ALUMNOS EXTENSION: " + (extension.size()));
+		Print.endl(1);
+		Print.outSln("0.- Salir del Programa");
+		Print.outSln("1.- INGRESAR DATOS DE UN ALUMNO DE PREGRADO");
+		Print.outSln("2.- INGRESAR DATOS DE UN ALUMNO DE EXTENSION");
 
-   byte opc;
+		Print.endl(2);
+		
+		Print.outSln("9.- GENERAR ALUMNO DE PREGRADO ALEATORIO");
+		Print.outSln("10.- GENERAR ALUMNO DE EXTENSION ALEATORIO");
+		Print.outSln("11.- Acerca del Programa");
+		Print.endl(1);
+		opc = C.in_byte("SELECCIONE UNA OPCION: [  ]\b\b\b");
+	}else if((pregrado.size() != 0) && (extension.size() == 0)){
+		Print.separador();
+		Print.outCenln("2do TALLER DE PROGRAMACION");
+		Print.outCenln("UNIVERSIDAD DEL SOL");
+		Print.separador();
+		Print.espacio(40);
+		Print.outln("NUMERO DE ALUMNOS REGISTRADOS: " + (pregrado.size()+extension.size()));// + variable que cuenta el numero de vendedores
+		Print.espacio(40);
+		Print.outln("NUMERO DE ALUMNOS Pregrado: " + (pregrado.size()));
+		Print.espacio(40);
+		Print.outln("NUMERO DE ALUMNOS EXTENSION: " + (extension.size()));
+		Print.endl(1);
+		Print.outSln("0.- Salir del Programa");
+		Print.outSln("1.- INGRESAR DATOS DE UN ALUMNO DE PREGRADO");
+		Print.outSln("2.- INGRESAR DATOS DE UN ALUMNO DE EXTENSION");
+		Print.outSln("3.- MOSTRAR EL LISTADO DE LOS ALUMNOS DE PREGRADO");
+		Print.outSln("5.- CUADRO DE HONOR PREGRADO");
+		Print.outSln("7.- ESTADISTICAS PREGRADO");
+		
+		Print.endl(2);
+		
+		Print.outSln("9.- GENERAR ALUMNO DE PREGRADO ALEATORIO");
+		Print.outSln("10.- GENERAR ALUMNO DE EXTENSION ALEATORIO");
+		Print.outSln("11.- Acerca del Programa");
+		Print.endl(1);
+		opc = C.in_byte("SELECCIONE UNA OPCION: [  ]\b\b\b");
+	}else if((pregrado.size() == 0) && ( extension.size() != 0)){
+		Print.separador();
+		Print.outCenln("2do TALLER DE PROGRAMACION");
+		Print.outCenln("UNIVERSIDAD DEL SOL");
+		Print.separador();
+		Print.espacio(40);
+		Print.outln("NUMERO DE ALUMNOS REGISTRADOS: " + (pregrado.size()+extension.size()));// + variable que cuenta el numero de vendedores
+		Print.espacio(40);
+		Print.outln("NUMERO DE ALUMNOS Pregrado: " + (pregrado.size()));
+		Print.espacio(40);
+		Print.outln("NUMERO DE ALUMNOS EXTENSION: " + (extension.size()));
+		Print.endl(1);
+		Print.outSln("0.- Salir del Programa");
+		Print.outSln("1.- INGRESAR DATOS DE UN ALUMNO DE PREGRADO");
+		Print.outSln("2.- INGRESAR DATOS DE UN ALUMNO DE EXTENSION");
+		Print.outSln("4.- MOSTRAR EL LISTADO DE LOS ALUMNOS DE EXTENSION");
+		Print.outSln("6.- CUADRO DE HONOR EXTENSION");
+		Print.outSln("8.- ESTADISTICAS EXTENSION");
+
+		Print.endl(2);
+		
+		Print.outSln("9.- GENERAR ALUMNO DE PREGRADO ALEATORIO");
+		Print.outSln("10.- GENERAR ALUMNO DE EXTENSION ALEATORIO");
+		Print.outSln("11.- Acerca del Programa");
+		Print.endl(1);
+		opc = C.in_byte("SELECCIONE UNA OPCION: [  ]\b\b\b");
+	}else{
 			Print.separador();
 				Print.outCenln("2do TALLER DE PROGRAMACION");
 				Print.outCenln("UNIVERSIDAD DEL SOL");
@@ -233,6 +327,7 @@ public static byte menu(){
 				Print.outSln("11.- Acerca del Programa");
 				Print.endl(1);
 				opc = C.in_byte("SELECCIONE UNA OPCION: [  ]\b\b\b");
+	}
 		return opc;
 							
 
