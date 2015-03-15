@@ -7,7 +7,7 @@ import java.util.ArrayList;
 
 
 /**
- * Fase Beta
+ * 
  * @author Nestor Luis Tobon Arrieta C.I: 23.863.118
  * @author Jose Andres Delgado C.I: 24.713.455
  * @author Seccion N-511
@@ -410,7 +410,7 @@ public static byte menu(){
 	System.out.print("          ");
 	System.out.println("Programa realizado por: Jose Delgado");
 	System.out.print("          ");
-	System.out.println("Cedula de Identidad: ");
+	System.out.println("Cedula de Identidad: 24.713.455");
 	System.out.print("          ");
 	System.out.println("Seccion N-511");
 	System.out.println("\n\n");

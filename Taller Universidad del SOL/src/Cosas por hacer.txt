@@ -12,7 +12,7 @@
 
 
 
-5.- imprimir las notas en forma de fila. utilizar Print.imprimir_fila()
+5.- imprimir las notas en forma de fila. utilizar Print.imprimir_fila() (Listo)
 
 6.- Mostrar el mejor alumno tanto de pregrado como de extension. (Listo)
 
@@ -31,6 +31,6 @@
 	- Total de alumnos por debajo del promedio
 	
 
-10.- Acomodar las flechas y el espaciado del cuadro de honor
+10.- Acomodar las flechas y el espaciado del cuadro de honor (Listo)
 
 11.- Y si tienen el mismo apellido deben ordenarse por nombres <---(Listo)
