@@ -1,10 +1,5 @@
 import java.util.ArrayList;
 
-import aux_classes.jose.Fecha;
-import aux_classes.jose.MCursor;
-import aux_classes.nestor.Ordenar;
-import aux_classes.nestor.input_output.Print;
-
 
 
 public class AluPre extends Estudiante

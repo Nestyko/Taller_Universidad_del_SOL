@@ -1,6 +1,4 @@
 
-import aux_classes.jose.Fecha;
-import aux_classes.jose.MCursor;
 import java.util.ArrayList;
 abstract class Estudiante
 {	String apellido;

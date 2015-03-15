@@ -1,8 +1,3 @@
-import aux_classes.jose.Fecha;
-import aux_classes.nestor.Aleatorio.Aleatorio;
-import aux_classes.nestor.input_output.C;
-import aux_classes.nestor.input_output.Print;
-
 import java.util.ArrayList;
 
 

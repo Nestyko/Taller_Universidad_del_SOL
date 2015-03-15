@@ -1,6 +1,6 @@
 // Autor Mildred Chacin Fonseca
 
-package aux_classes.jose;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;

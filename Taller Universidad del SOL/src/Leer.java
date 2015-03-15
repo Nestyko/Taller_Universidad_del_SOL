@@ -1,5 +1,5 @@
 // Autor M.Sc. Maria Eugenia Fossi Medina
-package aux_classes.jose;
+
 
 public class Leer
 {

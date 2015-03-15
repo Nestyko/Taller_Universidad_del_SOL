@@ -1,8 +1,6 @@
-package aux_classes.nestor.input_output;
 
-import aux_classes.nestor.input_output.KbInput.*;
 
-import aux_classes.nestor.input_output.KbInput.KbInput;
+
 
 
 public class C {

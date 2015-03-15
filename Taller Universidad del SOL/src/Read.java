@@ -1,5 +1,5 @@
 //Jose Delgado
-package aux_classes.jose;
+
 public class Read
 {
 	//METODO PARA LEER NUMEROS TIPO BYTE
