@@ -1,19 +1,20 @@
-import java.util.ArrayList;
 
 import aux_classes.jose.Fecha;
 import aux_classes.jose.MCursor;
-
+import java.util.ArrayList;
 abstract class Estudiante
 {	String apellido;
 	String nombre;
 	int cedula;
 	Fecha nacimiento;
+	static ArrayList<Integer> todas_cedulas = new ArrayList<Integer>();
 
 	//CONSTRUCTOR
 	public Estudiante(String apellido, String nombre, int cedula, Fecha nacimiento)
 	{	this.apellido = apellido.toUpperCase();
 		this.nombre = nombre.toUpperCase();
 		this.cedula = cedula;
+		todas_cedulas.add(this.cedula);
 		this.nacimiento = nacimiento;
 	}//Estudiante
 
@@ -25,5 +26,20 @@ abstract class Estudiante
 		nacimiento.Mostrar(20,"FECHA DE NACIMIENTO = ");
 	}
 	
+
+	/**
+	 * Revisa si la cedula esta repetida
+	 * @param cedula es la cedula a buscar
+	 * @return true si la cedula esta repetida
+	 */
+	public static boolean validarCedula(int cedula){
+		if (todas_cedulas.contains(cedula)){
+			return true;
+		}
+		else{
+			return false;
+		}
+		
+	}
 	
 }//class

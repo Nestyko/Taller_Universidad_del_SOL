@@ -34,6 +34,7 @@ public class AluExt extends Estudiante
 		notas = Nt;
 		promedio = PromNot();
 		agregar_promedio(promedio);
+		cant_alumnos++;
 	}//AluExt
 	
 	/**
@@ -82,7 +83,7 @@ public class AluExt extends Estudiante
 	 * @return el promedio total como flotante
 	 */
 	public static float promedio_total(){
-		return sumatoria_promedios/cant_alumnos;
+		return (sumatoria_promedios/cant_alumnos);
 	}
 
 	//METODO PARA MOSTRAR LOS DATOS

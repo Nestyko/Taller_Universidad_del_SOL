@@ -36,6 +36,42 @@ public class C {
 		}while(err);
 		return a;
 	}
+	/**
+	 * Imprime un mensaje que pida ingresar una String,
+	 * la cual no puede ser nula
+	 * @param msg Es el mensaje para pedir la String
+	 * @return la String ingresada por el usuario
+	 */
+	public static String in_StringForce(String msg){
+		boolean err = true;
+
+		String a = null;
+		do{
+
+		try{
+			System.out.print("          " + msg);
+			//KbInput.read();
+			a = KbInput.read();
+			err = false;
+			
+		}
+		catch(Exception e){
+			Print.errorCen("Debe Ingresar una cadena de caracteres");
+			err = true;
+		}
+		if((a == null) || (a == "")){
+			err = true;continue;
+		}else{
+			err = true;
+			for (int i = 0; i <a.length(); i++) {
+				if(a.charAt(i) != ' '){
+					err = false;break;
+				}
+			}
+		}
+		}while(err);
+		return a;
+	}
 
 	public static char in_char(String msg){
 		boolean err = true;
@@ -280,8 +316,10 @@ public class C {
 			boolean numero = false;
 			do{
 				if(a.length() == 0){
-								numero = false;
+					
+					numero = false;continue;
 					}//if
+				else{
 			for(int i = 0; i< a.length();i++){
 				switch(a.charAt(i)){
 					case '0': numero = true; break;
@@ -295,12 +333,14 @@ public class C {
 					case '8': numero = true;break;
 					case '9': numero = true;break;
 					default: numero = false;break;
-					}//switch
-				}//for
+						}//switch
+					}//for
+				}//else
 			if(numero){
 				a = in_String("Por favor ingrese solo letras: ");
 			}//if
 			}while ( numero);
+			
 
 
 

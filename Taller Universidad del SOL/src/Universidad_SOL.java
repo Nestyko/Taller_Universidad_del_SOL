@@ -9,7 +9,7 @@ import java.util.ArrayList;
 /**
  * Fase Beta
  * @author Nestor Luis Tobon Arrieta C.I: 23.863.118
- * @author Jose Delgado C.I: 
+ * @author Jose Andres Delgado C.I: 24.713.455
  * @author Seccion N-511
  * 
  * Clase Principal del Taller de programacion Universidad del SOL
@@ -42,11 +42,17 @@ public class Universidad_SOL{
 				case 1:{
 					Print.outSln("Ingresando datos de Alumno de PRE-GRADO");
 					Print.endl(1);
-					String nombre = C.solo_letras(C.in_String("INGRESE EL NOMBRE DEL ALUMNO: "));
-					String apellido = C.solo_letras(C.in_String("INGRESE EL APELLIDO DEL ALUMNO: "));
-					int cedula = C.unsigned(C.in_int("INGRESE LA CEDULA: "));
+					String nombre = C.solo_letras(C.in_StringForce("INGRESE EL NOMBRE DEL ALUMNO: "));
+					String apellido = C.solo_letras(C.in_StringForce("INGRESE EL APELLIDO DEL ALUMNO: "));
+					int cedula = 0;
+					cedula = C.unsigned(C.in_int("INGRESE LA CEDULA: "));
+					while ( Estudiante.validarCedula(cedula)){
+						Print.errorCen("LA CEDULA YA ESTA REGISTRADA");
+						cedula = C.unsigned(C.in_int("INGRESE LA CEDULA: "));
+						
+					}
 					Fecha nacimiento = ing_fecha();
-					String carrera = C.solo_letras(C.in_String("INGRESE LA CARRERA: "));
+					String carrera = C.solo_letras(C.in_StringForce("INGRESE LA CARRERA: "));
 					byte semestre = 0;
 					while ((semestre <= 0) || (semestre > 12)){
 					semestre = C.unsigned(C.in_byte("INGRESE EL SEMESTRE: "));
@@ -81,11 +87,17 @@ public class Universidad_SOL{
 				case 2:{
 							Print.outSln("Ingresando datos de Alumno de PRE-GRADO");
 							Print.endl(1);
-							String nombre = C.solo_letras(C.in_String("INGRESE EL NOMBRE DEL ALUMNO: "));
-							String apellido = C.solo_letras(C.in_String("INGRESE EL APELLIDO DEL ALUMNO: "));
-							int cedula = C.unsigned(C.in_int("INGRESE LA CEDULA: "));
+							String nombre = C.solo_letras(C.in_StringForce("INGRESE EL NOMBRE DEL ALUMNO: "));
+							String apellido = C.solo_letras(C.in_StringForce("INGRESE EL APELLIDO DEL ALUMNO: "));
+							int cedula = 0;
+							cedula = C.unsigned(C.in_int("INGRESE LA CEDULA: "));
+							while ( Estudiante.validarCedula(cedula)){
+								Print.errorCen("LA CEDULA YA ESTA REGISTRADA");
+								cedula = C.unsigned(C.in_int("INGRESE LA CEDULA: "));
+								
+							}
 							Fecha nacimiento = ing_fecha();
-							String curso = C.solo_letras(C.in_String("INGRESE CURSO: "));
+							String curso = C.solo_letras(C.in_StringForce("INGRESE CURSO: "));
 							byte nivel = 0;
 							while ((nivel <= 0) ||(nivel > 6)){
 								nivel = C.unsigned(C.in_byte("INGRESE EL NIVEL: "));
@@ -262,8 +274,12 @@ public static byte menu(){
 		}
 		float[] notas = new float[materias];
 		notas = Aleatorio.vector(notas, 21);
+		int cedula = 0;
+		do{
+			 cedula = hobbit.getCedula();
+		}while(Estudiante.validarCedula(cedula));
 		
-		AluPre nuevo = new AluPre(hobbit.getApellido(),hobbit.getNombre(), hobbit.getCedula(), 
+		AluPre nuevo = new AluPre(hobbit.getApellido(),hobbit.getNombre(), cedula, 
 				nacimiento, "Carrera aleatoria",semestre,materias, notas);
 		
 		pregrado.add(nuevo);
@@ -279,8 +295,12 @@ public static byte menu(){
 		}
 		float[] notas = new float[nivel];
 		notas = Aleatorio.vector(notas, 21);
+		int cedula = 0;
+		do{
+			 cedula = hobbit.getCedula();
+		}while(Estudiante.validarCedula(cedula));
 		
-		AluExt nuevo = new AluExt(hobbit.getApellido(),hobbit.getNombre(), hobbit.getCedula(), 
+		AluExt nuevo = new AluExt(hobbit.getApellido(),hobbit.getNombre(), cedula, 
 				nacimiento, "Curso aleatorio", nivel, notas);
 		
 		extension.add(nuevo);
